@@ -4,11 +4,10 @@ import { expect, userEvent } from 'storybook/test'
 import { eachTheme, figma } from '../../../.storybook/play'
 import { Checkbox } from './Checkbox'
 
-/** Figma: Checkbox `12:692`. */
 const meta = {
   title: 'Formulários/Checkbox',
   component: Checkbox,
-  parameters: { figma: figma('12:692') },
+  parameters: figma({ Checkbox: '12:692' }),
   args: { children: 'Selecionar opção' },
 } satisfies Meta<typeof Checkbox>
 export default meta

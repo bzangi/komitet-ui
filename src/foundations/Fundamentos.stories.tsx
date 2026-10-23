@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties } from 'react'
+import { figma } from '../../.storybook/play'
 
-/** Figma: 01 · Fundamentos — 7:2 (paletas), 7:74 (tipografia), 7:87 (geometria e material). */
 const meta: Meta = {
   title: 'Fundamentos',
-  parameters: { figma: 'https://www.figma.com/design/efiIkmlCZ1DyEoYhc6zvZr?node-id=6-2' },
+  parameters: figma({ Paletas: '7:2', Tipografia: '7:74', 'Geometria e material': '7:87' }),
 }
 export default meta
 

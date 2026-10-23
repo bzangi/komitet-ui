@@ -4,4 +4,15 @@ import { within } from 'storybook/test'
 export const eachTheme = (canvasElement: HTMLElement) =>
   [...canvasElement.querySelectorAll<HTMLElement>('[data-k-theme]')].map(el => within(el))
 
-export const figma = (nodeId: string) => `https://www.figma.com/design/efiIkmlCZ1DyEoYhc6zvZr?node-id=${nodeId.replace(':', '-')}`
+const url = (nodeId: string) => `https://www.figma.com/design/efiIkmlCZ1DyEoYhc6zvZr?node-id=${nodeId.replace(':', '-')}`
+
+/** Parâmetros de meta: links para os nós do Figma na página de docs da família. */
+export const figma = (nodes: Record<string, string>, note = '') => ({
+  docs: {
+    description: {
+      component: `**Figma:** ${Object.entries(nodes)
+        .map(([name, id]) => `[${name} \`${id}\`](${url(id)})`)
+        .join(' · ')}${note ? `\n\n${note}` : ''}`,
+    },
+  },
+})

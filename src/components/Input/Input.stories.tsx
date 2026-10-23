@@ -4,11 +4,10 @@ import { eachTheme, figma } from '../../../.storybook/play'
 import { Field } from '../Field/Field'
 import { Input } from './Input'
 
-/** Figma: Input `12:251`, Field `18:3699`, Label `12:1584`. */
 const meta = {
   title: 'Formulários/Input',
   component: Input,
-  parameters: { figma: figma('12:251') },
+  parameters: figma({ Input: '12:251', Field: '18:3699', Label: '12:1584' }),
 } satisfies Meta<typeof Input>
 export default meta
 type Story = StoryObj<typeof meta>

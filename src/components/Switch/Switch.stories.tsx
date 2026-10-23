@@ -4,11 +4,10 @@ import { expect, userEvent } from 'storybook/test'
 import { eachTheme, figma } from '../../../.storybook/play'
 import { Switch } from './Switch'
 
-/** Figma: Switch `12:916`. */
 const meta = {
   title: 'Formulários/Switch',
   component: Switch,
-  parameters: { figma: figma('12:916') },
+  parameters: figma({ Switch: '12:916' }),
   args: { children: 'Alimentação' },
 } satisfies Meta<typeof Switch>
 export default meta

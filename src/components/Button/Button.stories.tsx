@@ -4,14 +4,10 @@ import { eachTheme, figma } from '../../../.storybook/play'
 import { Button } from './Button'
 import { IconButton } from './IconButton'
 
-/**
- * Figma: Button/Primary `11:89`, Secondary `11:198`, Destructive `11:307`, Quiet `11:416`,
- * Button/Size `18:3525`, IconButton `18:3588`.
- */
 const meta = {
   title: 'Ações/Button',
   component: Button,
-  parameters: { figma: figma('11:89') },
+  parameters: figma({ 'Button/Primary': '11:89', 'Button/Secondary': '11:198', 'Button/Destructive': '11:307', 'Button/Quiet': '11:416', 'Button/Size': '18:3525', IconButton: '18:3588' }),
   args: { children: 'Confirmar', onClick: fn() },
 } satisfies Meta<typeof Button>
 export default meta
@@ -49,7 +45,6 @@ export const Variantes: Story = {
 }
 
 export const Tamanhos: Story = {
-  parameters: { figma: figma('18:3525') },
   render: args => (
     <div style={row}>
       <Button {...args} variant="secondary" size="sm" />
@@ -60,7 +55,6 @@ export const Tamanhos: Story = {
 }
 
 export const IconButtons: Story = {
-  parameters: { figma: figma('18:3588') },
   render: () => (
     <div style={row}>
       <IconButton icon={<AddIcon />} aria-label="Adicionar registro" />

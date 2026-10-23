@@ -5,11 +5,13 @@ import { Badge } from '../Badge/Badge'
 import { Button } from '../Button/Button'
 import { Card, CardActions, CardContent, CardHeader, CardMeta, CardTitle, type CardProps } from './Card'
 
-/** Figma: Card/Paper `13:639`, Card/Plate `13:1080`, Card/Module `13:1549` (idêntico a Plate), Card/Compact `13:2018`. */
 const meta = {
   title: 'Cards/Card',
   component: Card,
-  parameters: { figma: figma('13:639') },
+  parameters: figma(
+    { 'Card/Paper': '13:639', 'Card/Plate': '13:1080', 'Card/Module': '13:1549', 'Card/Compact': '13:2018' },
+    'Card/Module é idêntico a Card/Plate no Figma; use `material="plate"`. `selected` é visual: num card interativo, informe também `aria-pressed` ou `aria-current`.',
+  ),
 } satisfies Meta<typeof Card>
 export default meta
 type Story = StoryObj<typeof meta>
@@ -70,8 +72,8 @@ const states = (material: CardProps['material']) => (
 )
 
 export const Papel: Story = { render: () => states('paper') }
-export const Placa: Story = { parameters: { figma: figma('13:1080') }, render: () => states('plate') }
-export const Compacto: Story = { parameters: { figma: figma('13:2018') }, render: () => states('compact') }
+export const Placa: Story = { render: () => states('plate') }
+export const Compacto: Story = { render: () => states('compact') }
 
 export const TextoLongo: Story = {
   name: 'Texto longo e largura estreita',

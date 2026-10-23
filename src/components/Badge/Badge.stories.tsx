@@ -2,11 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { figma } from '../../../.storybook/play'
 import { Badge } from './Badge'
 
-/** Figma: Badge `10:54`. */
 const meta = {
   title: 'Elementos básicos/Badge',
   component: Badge,
-  parameters: { figma: figma('10:54') },
+  parameters: figma({ Badge: '10:54' }),
   args: { children: 'Rascunho' },
 } satisfies Meta<typeof Badge>
 export default meta

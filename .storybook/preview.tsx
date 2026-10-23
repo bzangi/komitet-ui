@@ -11,6 +11,7 @@ import { Theme, type ThemeName } from '../src/theme/Theme'
 const themes: ThemeName[] = ['construtivista', 'industrial']
 
 const preview: Preview = {
+  tags: ['autodocs'],
   globalTypes: {
     theme: {
       description: 'Tema',

@@ -10,6 +10,13 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | `Theme` | 🟡 | sem container de portal (entra com overlays) |
 | Tokens de texto de status (`--k-*-text`) | ✅ | ver divergência 9 |
 
+## Pendências transversais
+| Item | Status | Nota |
+|---|---|---|
+| Pacote instalável em consumidor `moduleResolution: NodeNext` | ⬜ | `.d.ts` emitidos com imports relativos sem `.js`; validar com `npm pack` + app limpo |
+| `Theme` → contexto para portais (overlays herdam o tema) | ⬜ | antes do primeiro overlay |
+| Decisão sobre texto de status (divergência 9) | ⬜ | aguardando o dono do design |
+
 ## Componentes
 | Componente | Figma | Status | Nota |
 |---|---|---|---|
