@@ -1,0 +1,7 @@
+node_modules
+dist
+storybook-static
+*.tgz
+__screenshots__/**/*-actual.png
+__screenshots__/**/*-diff.png
+.vitest-attachments

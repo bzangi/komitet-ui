@@ -1,0 +1,157 @@
+/*
+ * Komitet tokens — extraídos do Figma efiIkmlCZ1DyEoYhc6zvZr.
+ * Camadas iguais às do arquivo: Primitives → semânticos por tema (Construtivista / Industrial),
+ * Metrics e Typography compartilhados. Componentes só consomem os semânticos.
+ */
+
+:root {
+  /* Komitet / Primitives */
+  --k-construtivista-paper: #d9bc78;
+  --k-construtivista-surface: #eddaa5;
+  --k-construtivista-ink: #51391e;
+  --k-construtivista-brand: #9c291b;
+  --k-construtivista-onbrand: #f8dfa0;
+  --k-construtivista-muted: #563b20;
+  --k-construtivista-line: #a17c39;
+  --k-construtivista-soft: #ceb16b;
+  --k-construtivista-good: #40502a;
+  --k-construtivista-warn: #754609;
+  --k-construtivista-bad: #91271c;
+  --k-construtivista-metal: #ba9344;
+  --k-construtivista-terminalbg: #352815;
+  --k-construtivista-terminalfg: #e6bc60;
+
+  --k-industrial-paper: #8caa98;
+  --k-industrial-surface: #ced1ba;
+  --k-industrial-ink: #20291e;
+  --k-industrial-brand: #4b5320;
+  --k-industrial-onbrand: #fff8d9;
+  --k-industrial-muted: #303c31;
+  --k-industrial-line: #667b69;
+  --k-industrial-soft: #adb99f;
+  --k-industrial-good: #27573e;
+  --k-industrial-warn: #765000;
+  --k-industrial-bad: #a32d20;
+  --k-industrial-metal: #8b957f;
+  --k-industrial-terminalbg: #202d20;
+  --k-industrial-terminalfg: #c2d19e;
+
+  --k-amber: #f1b34e;
+  --k-readout: #342818;
+  --k-signal: #e7c87b;
+
+  /* Komitet / Metrics */
+  --k-space-0: 0px;
+  --k-space-2: 2px;
+  --k-space-4: 4px;
+  --k-space-8: 8px;
+  --k-space-12: 12px;
+  --k-space-16: 16px;
+  --k-space-20: 20px;
+  --k-space-24: 24px;
+  --k-space-32: 32px;
+  --k-space-40: 40px;
+  --k-space-48: 48px;
+  --k-space-64: 64px;
+
+  --k-radius-0: 0px;
+  --k-radius-2: 2px;
+  --k-radius-3: 3px;
+  --k-radius-4: 4px;
+  --k-radius-8: 8px;
+  --k-radius-999: 999px;
+
+  --k-border-1: 1px;
+  --k-border-2: 2px;
+  --k-border-3: 3px;
+  --k-border-4: 4px;
+  --k-border-5: 5px;
+
+  --k-control-32: 32px;
+  --k-control-42: 42px;
+  --k-control-44: 44px;
+  --k-control-52: 52px;
+
+  /* Komitet / Typography — fontes carregadas pelo consumidor; fallbacks preservam a função. */
+  --k-font-display: 'Oswald', 'Arial Narrow', 'Roboto Condensed', sans-serif;
+  --k-font-body: 'PT Sans', 'Trebuchet MS', system-ui, sans-serif;
+  --k-font-label: 'Courier Prime', 'Courier New', Courier, monospace;
+  --k-font-terminal: 'Share Tech Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* Estilos de texto (Komitet/…) como shorthand `font`; letter-spacing à parte. */
+  --k-text-display-xl: 700 64px/72px var(--k-font-display);
+  --k-text-display-l: 700 44px/52px var(--k-font-display);
+  --k-text-heading-l: 500 28px/36px var(--k-font-display);
+  --k-text-heading-m: 500 20px/28px var(--k-font-display);
+  --k-text-body: 400 15px/24px var(--k-font-body);
+  --k-text-body-strong: 700 15px/24px var(--k-font-body);
+  --k-text-body-small: 400 13px/20px var(--k-font-body);
+  --k-text-label: 700 12px/18px var(--k-font-label);
+  --k-text-label-small: 700 11px/16px var(--k-font-label);
+  --k-text-control: 500 14px/20px var(--k-font-display);
+  --k-text-terminal: 400 14px/22px var(--k-font-terminal);
+  --k-text-readout: 400 44px/56px var(--k-font-terminal);
+  --k-tracking-label: 0.2px;
+
+  --k-duration: 120ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --k-duration: 0ms;
+  }
+}
+
+/* Komitet / Construtivista — também é o padrão sem atributo de tema. */
+:root,
+[data-k-theme='construtivista'] {
+  --k-paper: var(--k-construtivista-paper);
+  --k-surface: var(--k-construtivista-surface);
+  --k-ink: var(--k-construtivista-ink);
+  --k-brand: var(--k-construtivista-brand);
+  --k-onbrand: var(--k-construtivista-onbrand);
+  --k-muted: var(--k-construtivista-muted);
+  --k-line: var(--k-construtivista-line);
+  --k-soft: var(--k-construtivista-soft);
+  --k-good: var(--k-construtivista-good);
+  --k-warn: var(--k-construtivista-warn);
+  --k-bad: var(--k-construtivista-bad);
+  --k-metal: var(--k-construtivista-metal);
+  --k-terminalbg: var(--k-construtivista-terminalbg);
+  --k-terminalfg: var(--k-construtivista-terminalfg);
+}
+
+/* Komitet / Industrial */
+[data-k-theme='industrial'] {
+  --k-paper: var(--k-industrial-paper);
+  --k-surface: var(--k-industrial-surface);
+  --k-ink: var(--k-industrial-ink);
+  --k-brand: var(--k-industrial-brand);
+  --k-onbrand: var(--k-industrial-onbrand);
+  --k-muted: var(--k-industrial-muted);
+  --k-line: var(--k-industrial-line);
+  --k-soft: var(--k-industrial-soft);
+  --k-good: var(--k-industrial-good);
+  --k-warn: var(--k-industrial-warn);
+  --k-bad: var(--k-industrial-bad);
+  --k-metal: var(--k-industrial-metal);
+  --k-terminalbg: var(--k-industrial-terminalbg);
+  --k-terminalfg: var(--k-industrial-terminalfg);
+}
+
+/*
+ * Relevos — estilos de efeito Komitet/<Tema>/Raised|Inset: cor = ink a 26%.
+ * Declarados junto dos semânticos para resolverem com o --k-ink do tema local.
+ */
+:root,
+[data-k-theme] {
+  --k-shadow: color-mix(in srgb, var(--k-ink) 26%, transparent);
+  --k-raised: 1px 3px 3px var(--k-shadow);
+  --k-inset: inset 1px 2px 3px var(--k-shadow);
+}
+
+[data-k-theme] {
+  color: var(--k-ink);
+  background-color: var(--k-paper);
+  font: var(--k-text-body);
+}
