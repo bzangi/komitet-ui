@@ -23,7 +23,8 @@
     "build": "vite build && tsc -p tsconfig.build.json",
     "build-storybook": "storybook build",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run --project storybook",
+    "test:visual": "vitest run --project visual"
   },
   "peerDependencies": {
     "react": "^19.0.0",

@@ -1,0 +1,109 @@
+/* Button — aro (metal, Raised) + face. Figma 11:89 · 11:198 · 11:307 · 11:416 · 18:3525 · 18:3588 */
+.k-button {
+  --k-button-height: var(--k-control-42);
+  --k-button-min-width: 140px;
+  --k-button-face: var(--k-brand);
+  --k-button-text: var(--k-onbrand);
+
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  min-width: var(--k-button-min-width);
+  min-height: var(--k-button-height);
+  /* O traço interno de 1 px do Figma ocupa parte do padding de 3 px. */
+  padding: calc(var(--k-space-4) - var(--k-border-1) * 2);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-3);
+  background: var(--k-metal);
+  box-shadow: var(--k-raised);
+  color: var(--k-button-text);
+  font: var(--k-text-control);
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow var(--k-duration);
+}
+
+.k-button[data-size='sm'] {
+  --k-button-height: var(--k-control-32);
+  --k-button-min-width: 112px;
+}
+
+.k-button[data-size='lg'] {
+  --k-button-height: var(--k-control-52);
+  --k-button-min-width: 180px;
+}
+
+.k-button[data-variant='secondary'] {
+  --k-button-face: var(--k-surface);
+  --k-button-text: var(--k-ink);
+}
+
+.k-button[data-variant='destructive'] {
+  --k-button-face: var(--k-bad);
+}
+
+.k-button__face {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: var(--k-space-8);
+  /* ponytail: Figma usa largura fixa e padding de 4 px; 12 px laterais seguram rótulos longos. */
+  padding: var(--k-space-4) var(--k-space-12);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-button-face);
+  overflow-wrap: anywhere;
+}
+
+.k-button:hover:not(:disabled, [aria-disabled='true']) .k-button__face {
+  opacity: 0.92;
+}
+
+.k-button:active:not(:disabled, [aria-disabled='true']) {
+  box-shadow: var(--k-inset);
+}
+
+.k-button:focus-visible {
+  outline: var(--k-border-2) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-2) * -1);
+}
+
+.k-button:is(:disabled, [aria-disabled='true']) {
+  --k-button-face: var(--k-soft);
+  --k-button-text: var(--k-ink);
+  cursor: not-allowed;
+}
+
+.k-button[aria-busy='true'] {
+  cursor: progress;
+}
+
+/* Quiet: sem material; mantém a área de toque e o foco. */
+.k-button[data-variant='quiet'] {
+  --k-button-face: transparent;
+  --k-button-text: var(--k-ink);
+  border-color: transparent;
+  background: none;
+  box-shadow: none;
+}
+
+.k-button[data-variant='quiet'] .k-button__face {
+  border-color: transparent;
+}
+
+/* IconButton — face quadrada, ícone de 18 px. Figma 18:3588 */
+.k-button[data-icon] {
+  --k-button-min-width: var(--k-button-height);
+}
+
+.k-button[data-icon] .k-button__face {
+  padding: var(--k-space-4);
+}
+
+.k-button[data-icon] svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}

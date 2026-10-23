@@ -1,0 +1,134 @@
+/* Card — Figma 13:639 (Paper) · 13:1080 (Plate) · 13:1549 (Module = Plate) · 13:2018 (Compact) */
+.k-card {
+  --k-card-pad-header: var(--k-space-12);
+  --k-card-pad-content: var(--k-space-16);
+
+  box-sizing: border-box;
+  display: flex;
+  min-width: 0;
+  padding: calc(var(--k-space-4) - var(--k-border-1) * 2);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-metal);
+  box-shadow: var(--k-raised);
+  color: var(--k-ink);
+  font: var(--k-text-body);
+  text-decoration: none;
+}
+
+.k-card[data-material='paper'] {
+  border-radius: 0;
+  background: var(--k-line);
+  box-shadow: none;
+}
+
+.k-card[data-material='compact'] {
+  --k-card-pad-header: var(--k-space-8);
+  --k-card-pad-content: var(--k-space-12);
+}
+
+.k-card__face {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-surface);
+  overflow: hidden;
+}
+
+/* Faixa de arquivo — só no papel. */
+.k-card[data-material='paper'] .k-card__face::before {
+  content: '';
+  flex: none;
+  height: 5px;
+  background: var(--k-brand);
+}
+
+.k-card__header {
+  display: flex;
+  gap: var(--k-space-8);
+  padding: var(--k-card-pad-header);
+  background: var(--k-soft);
+}
+
+/* Ferragem — parafuso de fenda na placa. */
+.k-card[data-material='plate'] .k-card__header::after {
+  content: '';
+  box-sizing: border-box;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-999);
+  background: linear-gradient(var(--k-ink), var(--k-ink)) center / 7px 1px no-repeat, var(--k-metal);
+}
+
+.k-card__id {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--k-space-4);
+  min-width: 0;
+}
+
+.k-card__meta {
+  margin: 0;
+  color: var(--k-muted);
+  font: var(--k-text-label-small);
+  letter-spacing: var(--k-tracking-label);
+  overflow-wrap: anywhere;
+}
+
+.k-card__title {
+  margin: 0;
+  color: var(--k-ink);
+  font: var(--k-text-heading-m);
+  overflow-wrap: anywhere;
+}
+
+.k-card__content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--k-space-12);
+  padding: var(--k-card-pad-content);
+  overflow-wrap: anywhere;
+}
+
+.k-card__content > p {
+  margin: 0;
+}
+
+.k-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--k-space-8);
+  padding: var(--k-card-pad-header);
+  background: var(--k-soft);
+}
+
+.k-card[data-selected] {
+  outline: var(--k-border-3) solid var(--k-brand);
+}
+
+.k-card[data-selected]:not([data-material='paper']) {
+  box-shadow: var(--k-inset);
+}
+
+.k-card:focus-visible {
+  outline: var(--k-border-2) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-2) * -1);
+}
+
+.k-card[data-error] .k-card__face {
+  border: var(--k-border-2) solid var(--k-bad);
+}
+
+.k-card[data-disabled] .k-card__face {
+  background: var(--k-soft);
+}

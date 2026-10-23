@@ -1,0 +1,99 @@
+/* Checkbox (12:692) e Switch (12:916) — linha com encaixe + rótulo; foco na linha. */
+.k-check {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--k-space-12);
+  max-width: 100%;
+  padding: var(--k-space-4);
+  color: var(--k-ink);
+  font: var(--k-text-body);
+  cursor: pointer;
+}
+
+.k-check:has(:focus-visible) {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-1) * -1);
+}
+
+.k-check:has(:disabled) {
+  cursor: not-allowed;
+}
+
+.k-check:has(:disabled) .k-check__label {
+  color: var(--k-muted);
+}
+
+.k-check__label {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.k-check__box {
+  all: unset;
+  box-sizing: border-box;
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 23px;
+  height: 23px;
+  border: var(--k-border-3) solid var(--k-metal);
+  border-radius: var(--k-radius-2);
+  background: var(--k-surface);
+  box-shadow: var(--k-inset);
+}
+
+.k-check__mark {
+  color: var(--k-brand);
+  font: var(--k-text-body-strong);
+  line-height: 1;
+}
+
+.k-check__mark::after {
+  content: '✓';
+}
+
+.k-check__mark[data-state='indeterminate']::after {
+  content: '−';
+}
+
+/* Switch — trilho com ranhuras na alavanca. */
+.k-switch__track {
+  all: unset;
+  box-sizing: border-box;
+  position: relative;
+  flex: none;
+  width: 44px;
+  height: 25px;
+  border: var(--k-border-3) solid var(--k-metal);
+  border-radius: var(--k-radius-4);
+  background: var(--k-muted);
+  box-shadow: var(--k-inset);
+}
+
+.k-switch__track[data-state='checked'] {
+  background: var(--k-brand);
+}
+
+.k-switch__thumb {
+  --k-groove: linear-gradient(var(--k-line), var(--k-line));
+
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 17px;
+  height: 19px;
+  border: var(--k-border-2) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background:
+    var(--k-groove) 3px 2px / 1px 11px no-repeat,
+    var(--k-groove) 6px 2px / 1px 11px no-repeat,
+    var(--k-groove) 9px 2px / 1px 11px no-repeat,
+    var(--k-surface);
+  transition: translate var(--k-duration);
+}
+
+.k-switch__thumb[data-state='checked'] {
+  translate: 21px 0;
+}

@@ -119,6 +119,11 @@
   --k-metal: var(--k-construtivista-metal);
   --k-terminalbg: var(--k-construtivista-terminalbg);
   --k-terminalfg: var(--k-construtivista-terminalfg);
+
+  /* Texto de status sobre paper/surface com ≥ 4.5:1 (divergência: Figma usa o tom puro). */
+  --k-good-text: var(--k-good);
+  --k-warn-text: color-mix(in srgb, var(--k-warn) 80%, var(--k-ink));
+  --k-bad-text: color-mix(in srgb, var(--k-bad) 95%, var(--k-ink));
 }
 
 /* Komitet / Industrial */
@@ -137,6 +142,10 @@
   --k-metal: var(--k-industrial-metal);
   --k-terminalbg: var(--k-industrial-terminalbg);
   --k-terminalfg: var(--k-industrial-terminalfg);
+
+  --k-good-text: color-mix(in srgb, var(--k-good) 45%, var(--k-ink));
+  --k-warn-text: color-mix(in srgb, var(--k-warn) 35%, var(--k-ink));
+  --k-bad-text: color-mix(in srgb, var(--k-bad) 40%, var(--k-ink));
 }
 
 /*

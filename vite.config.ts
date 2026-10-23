@@ -4,6 +4,14 @@ import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import { playwright } from '@vitest/browser-playwright'
 import pkg from './package.json' with { type: 'json' }
 
+const browser = {
+  enabled: true,
+  headless: true,
+  provider: playwright(),
+  instances: [{ browser: 'chromium' as const }],
+  viewport: { width: 1200, height: 900 },
+}
+
 const external = [...Object.keys(pkg.peerDependencies), ...Object.keys(pkg.dependencies)]
 
 export default defineConfig({
@@ -19,8 +27,12 @@ export default defineConfig({
         plugins: [storybookTest({ configDir: '.storybook' })],
         test: {
           name: 'storybook',
-          browser: { enabled: true, headless: true, provider: playwright(), instances: [{ browser: 'chromium' }] },
+          browser,
         },
+      },
+      {
+        extends: true,
+        test: { name: 'visual', include: ['src/visual.test.tsx'], browser },
       },
     ],
   },

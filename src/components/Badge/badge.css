@@ -1,0 +1,32 @@
+/* Badge — indicador com lente. Figma 10:54 */
+.k-badge {
+  --k-badge-tone: var(--k-ink);
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--k-space-8);
+  max-width: 100%;
+  padding: var(--k-space-4);
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-surface);
+  color: var(--k-badge-tone);
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+  overflow-wrap: anywhere;
+}
+
+.k-badge[data-tone='success'] { --k-badge-tone: var(--k-good); }
+.k-badge[data-tone='warning'] { --k-badge-tone: var(--k-warn); }
+.k-badge[data-tone='error'] { --k-badge-tone: var(--k-bad); }
+
+.k-badge__lens {
+  box-sizing: border-box;
+  flex: none;
+  width: 12px;
+  height: 12px;
+  border: var(--k-border-2) solid var(--k-metal);
+  border-radius: var(--k-radius-999);
+  background: var(--k-badge-tone);
+  box-shadow: var(--k-inset);
+}
