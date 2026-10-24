@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { figma } from '../../../.storybook/play'
-import { Separator } from './Basics'
+import { figma } from '../../../.storybook/play.js'
+import { Separator } from './Basics.js'
 
 const meta = {
   title: 'Elementos básicos/Separator',

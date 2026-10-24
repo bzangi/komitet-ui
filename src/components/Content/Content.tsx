@@ -1,5 +1,5 @@
 import type { ComponentProps, CSSProperties, ReactNode } from 'react'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 /** Propriedades de uma entidade em pares rótulo/valor. Figma 24:3601. */
 export function DescriptionList({ className, ...props }: ComponentProps<'dl'>) {

@@ -1,6 +1,6 @@
 import { Children, type ComponentProps, type ReactNode } from 'react'
 import { Accordion as AccordionPrimitive, Collapsible as CollapsiblePrimitive, Slot, Tabs as TabsPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 /* Tabs — Figma 14:2021 (mesmos segmentos do ToggleGroup). */
 export const Tabs = TabsPrimitive.Root

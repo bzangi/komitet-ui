@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, fn, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Button } from './Button'
-import { IconButton } from './IconButton'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Button } from './Button.js'
+import { IconButton } from './IconButton.js'
 
 const meta = {
   title: 'Ações/Button',

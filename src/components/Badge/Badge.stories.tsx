@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { figma } from '../../../.storybook/play'
-import { Badge } from './Badge'
+import { figma } from '../../../.storybook/play.js'
+import { Badge } from './Badge.js'
 
 const meta = {
   title: 'Elementos básicos/Badge',

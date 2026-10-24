@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Slider } from './Slider'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Slider } from './Slider.js'
 
 const meta = {
   title: 'Formulários/Slider',

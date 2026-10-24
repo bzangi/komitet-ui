@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { expect } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Slider } from '../Slider/Slider'
-import { Annunciator, Gauge, Readout, Terminal } from './Instruments'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Slider } from '../Slider/Slider.js'
+import { Annunciator, Gauge, Readout, Terminal } from './Instruments.js'
 
 const meta = {
   title: 'Instrumentos/Instrumentos',

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Avatar } from './Basics'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Avatar } from './Basics.js'
 
 const meta = {
   title: 'Elementos básicos/Avatar',

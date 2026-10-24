@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Progress } from './Basics'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Progress } from './Basics.js'
 
 const meta = {
   title: 'Elementos básicos/Progress',

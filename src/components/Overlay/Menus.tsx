@@ -1,7 +1,7 @@
 import { useRef, useState, type ComponentProps, type PointerEvent, type ReactNode } from 'react'
 import { ContextMenu as CM, DropdownMenu as DM, Menubar as MB, Popover as PO, Tooltip as TT } from 'radix-ui'
-import { ThemeScope } from '../../theme/Theme'
-import { cx } from '../../utils/cx'
+import { ThemeScope } from '../../theme/Theme.js'
+import { cx } from '../../utils/cx.js'
 
 type PanelProps = { title?: ReactNode }
 

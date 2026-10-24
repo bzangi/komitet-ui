@@ -1,5 +1,5 @@
 import type { ComponentProps } from 'react'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type BadgeProps = ComponentProps<'span'> & {
   /** A cor reforça; o texto precisa nomear a situação. */

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent, waitFor } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { RadioGroup, RadioGroupItem } from './Radio'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { RadioGroup, RadioGroupItem } from './Radio.js'
 
 const meta = {
   title: 'Formulários/RadioGroup',

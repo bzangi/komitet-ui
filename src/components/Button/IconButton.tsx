@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import { Button, type ButtonProps } from './Button'
+import { Button, type ButtonProps } from './Button.js'
 
 export type IconButtonProps = Omit<ButtonProps, 'children' | 'loadingLabel'> & {
   icon: ReactNode

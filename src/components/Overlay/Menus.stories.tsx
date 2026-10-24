@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, fn, screen, userEvent, waitFor } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Button } from '../Button/Button'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Button } from '../Button/Button.js'
 import {
   ContextMenu,
   ContextMenuContent,
@@ -21,7 +21,7 @@ import {
   PopoverContent,
   PopoverTrigger,
   Tooltip,
-} from './Menus'
+} from './Menus.js'
 
 const meta = {
   title: 'Menus/Menus e fichas',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { CSSProperties } from 'react'
-import { figma } from '../../.storybook/play'
+import { figma } from '../../.storybook/play.js'
 
 const meta: Meta = {
   title: 'Fundamentos',

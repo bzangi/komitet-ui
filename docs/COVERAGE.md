@@ -13,7 +13,7 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 ## Pendências transversais
 | Item | Status | Nota |
 |---|---|---|
-| Pacote instalável em consumidor `moduleResolution: NodeNext` | ⬜ | `.d.ts` emitidos com imports relativos sem `.js`; validar com `npm pack` + app limpo |
+| Pacote instalável em consumidor `moduleResolution: NodeNext` | ✅ | imports relativos com `.js`; validado com `npm pack` + consumidor limpo (tsc NodeNext + import em runtime) |
 | `Theme` → contexto para portais (overlays herdam o tema) | ✅ | testado no Dialog nos dois temas |
 | Decisão sobre texto de status (divergência 9) | ✅ | aprovado em 2026-10-23: escurecer só o texto (`--k-*-text`) |
 

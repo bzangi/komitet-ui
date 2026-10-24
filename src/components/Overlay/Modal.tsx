@@ -1,7 +1,7 @@
 import type { ComponentProps, ElementType, ReactNode } from 'react'
 import { AlertDialog as AlertPrimitive, Dialog as DialogPrimitive } from 'radix-ui'
-import { ThemeScope } from '../../theme/Theme'
-import { cx } from '../../utils/cx'
+import { ThemeScope } from '../../theme/Theme.js'
+import { cx } from '../../utils/cx.js'
 
 type FrameProps = {
   title: ReactNode

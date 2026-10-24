@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Accordion, AccordionItem, Breadcrumb, Collapsible, Sidebar, SidebarItem, Tabs, TabsContent, TabsList, TabsTrigger } from './Navigation'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Accordion, AccordionItem, Breadcrumb, Collapsible, Sidebar, SidebarItem, Tabs, TabsContent, TabsList, TabsTrigger } from './Navigation.js'
 
 const meta = {
   title: 'Navegação/Navegação',

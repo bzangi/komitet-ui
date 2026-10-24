@@ -1,6 +1,6 @@
 import { useState, type ComponentProps, type ReactNode } from 'react'
-import { useFieldControl } from '../Field/Field'
-import { cx } from '../../utils/cx'
+import { useFieldControl } from '../Field/Field.js'
+import { cx } from '../../utils/cx.js'
 
 export type InputProps = ComponentProps<'input'>
 

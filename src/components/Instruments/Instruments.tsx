@@ -1,6 +1,6 @@
 import { useId, type ComponentProps, type ReactNode } from 'react'
-import { Badge, type BadgeProps } from '../Badge/Badge'
-import { cx } from '../../utils/cx'
+import { Badge, type BadgeProps } from '../Badge/Badge.js'
+import { cx } from '../../utils/cx.js'
 
 /** Placa de instrumento: aro + face, com moldura de erro opcional. */
 function Plate({ error, className, children, ...props }: ComponentProps<'div'> & { error?: boolean }) {

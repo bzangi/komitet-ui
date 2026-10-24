@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { RadioGroup as RadioGroupPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type RadioGroupProps = ComponentProps<typeof RadioGroupPrimitive.Root>
 

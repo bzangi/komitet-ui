@@ -1,6 +1,6 @@
 import type { ComponentProps, MouseEvent, ReactNode } from 'react'
 import { Slot } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type ButtonProps = ComponentProps<'button'> & {
   /** Figma: Button/Primary, Secondary, Destructive, Quiet. */

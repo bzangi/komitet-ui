@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { figma } from '../../../.storybook/play'
-import { Skeleton } from './Basics'
+import { figma } from '../../../.storybook/play.js'
+import { Skeleton } from './Basics.js'
 
 const meta = {
   title: 'Elementos básicos/Skeleton',

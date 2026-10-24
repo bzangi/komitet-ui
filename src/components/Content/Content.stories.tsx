@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { figma } from '../../../.storybook/play'
-import { Avatar } from '../Basics/Basics'
-import { Button } from '../Button/Button'
-import { Card, CardContent } from '../Card/Card'
-import { AspectRatio, DescriptionItem, DescriptionList, Item } from './Content'
+import { figma } from '../../../.storybook/play.js'
+import { Avatar } from '../Basics/Basics.js'
+import { Button } from '../Button/Button.js'
+import { Card, CardContent } from '../Card/Card.js'
+import { AspectRatio, DescriptionItem, DescriptionList, Item } from './Content.js'
 
 const meta = {
   title: 'Estrutura/Conteúdo',

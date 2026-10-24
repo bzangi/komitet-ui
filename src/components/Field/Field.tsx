@@ -1,6 +1,6 @@
 import { createContext, useContext, useId, type ComponentProps, type ReactNode } from 'react'
 import { Label as LabelPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 type FieldContextValue = {
   id: string

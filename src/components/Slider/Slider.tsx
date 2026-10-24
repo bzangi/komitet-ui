@@ -1,6 +1,6 @@
 import { useId, useState, type ComponentProps, type ReactNode } from 'react'
 import { Slider as SliderPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type SliderProps = Omit<ComponentProps<typeof SliderPrimitive.Root>, 'value' | 'defaultValue' | 'onValueChange' | 'children'> & {
   label: ReactNode

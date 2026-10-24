@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { figma } from '../../../.storybook/play'
-import { Kbd } from './Basics'
+import { figma } from '../../../.storybook/play.js'
+import { Kbd } from './Basics.js'
 
 const meta = {
   title: 'Elementos básicos/Kbd',

@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react'
 import { Toggle as TogglePrimitive, ToggleGroup as ToggleGroupPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type ToggleProps = ComponentProps<typeof TogglePrimitive.Root> & {
   /** Figma: Toggle (face vira `brand`) e SignalButton (tecla luminosa que afunda). */

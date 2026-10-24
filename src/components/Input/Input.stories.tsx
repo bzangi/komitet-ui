@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Field } from '../Field/Field'
-import { Input } from './Input'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Field } from '../Field/Field.js'
+import { Input } from './Input.js'
 
 const meta = {
   title: 'Formulários/Input',

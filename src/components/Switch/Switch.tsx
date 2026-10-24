@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { Switch as SwitchPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type SwitchProps = Omit<ComponentProps<typeof SwitchPrimitive.Root>, 'children'> & {
   /** Rótulo visível. Sem ele, informe `aria-label`. */

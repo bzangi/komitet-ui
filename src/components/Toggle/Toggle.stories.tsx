@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, fn, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { ButtonGroup, ButtonGroupItem, Toggle, ToggleGroup, ToggleGroupItem } from './Toggle'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { ButtonGroup, ButtonGroupItem, Toggle, ToggleGroup, ToggleGroupItem } from './Toggle.js'
 
 const meta = {
   title: 'Ações/Toggle e grupos',

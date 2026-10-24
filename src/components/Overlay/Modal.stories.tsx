@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { expect, screen, userEvent, waitFor } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Button } from '../Button/Button'
-import { Field } from '../Field/Field'
-import { Input } from '../Input/Input'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Button } from '../Button/Button.js'
+import { Field } from '../Field/Field.js'
+import { Input } from '../Input/Input.js'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -17,7 +17,7 @@ import {
   DialogTrigger,
   DrawerContent,
   SheetContent,
-} from './Modal'
+} from './Modal.js'
 
 const meta = {
   title: 'Modais/Dialog, Sheet e Drawer',

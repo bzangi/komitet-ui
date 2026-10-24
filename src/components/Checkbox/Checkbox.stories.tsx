@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
 import { expect, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Checkbox } from './Checkbox'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Checkbox } from './Checkbox.js'
 
 const meta = {
   title: 'Formulários/Checkbox',

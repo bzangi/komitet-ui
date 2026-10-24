@@ -1,6 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react'
 import { Checkbox as CheckboxPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type CheckboxProps = Omit<ComponentProps<typeof CheckboxPrimitive.Root>, 'children'> & {
   /** Rótulo visível. Sem ele, informe `aria-label`. */

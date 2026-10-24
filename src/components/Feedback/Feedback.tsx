@@ -1,6 +1,6 @@
 import { useSyncExternalStore, type ComponentProps, type ReactNode } from 'react'
 import { Toast as ToastPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 type Tone = 'default' | 'warning' | 'error'
 

@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react'
 import { Slot } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type CardProps = ComponentProps<'div'> & {
   /** Figma: Card/Paper, Card/Plate (= Card/Module), Card/Compact. */

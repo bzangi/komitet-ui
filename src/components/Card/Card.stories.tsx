@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent } from 'storybook/test'
-import { eachTheme, figma } from '../../../.storybook/play'
-import { Badge } from '../Badge/Badge'
-import { Skeleton } from '../Basics/Basics'
-import { Button } from '../Button/Button'
-import { Card, CardActions, CardContent, CardHeader, CardMeta, CardTitle, type CardProps } from './Card'
+import { eachTheme, figma } from '../../../.storybook/play.js'
+import { Badge } from '../Badge/Badge.js'
+import { Skeleton } from '../Basics/Basics.js'
+import { Button } from '../Button/Button.js'
+import { Card, CardActions, CardContent, CardHeader, CardMeta, CardTitle, type CardProps } from './Card.js'
 
 const meta = {
   title: 'Cards/Card',

@@ -1,6 +1,6 @@
 import { useId, type ComponentProps, type ReactNode } from 'react'
 import { Progress as ProgressPrimitive, Separator as SeparatorPrimitive } from 'radix-ui'
-import { cx } from '../../utils/cx'
+import { cx } from '../../utils/cx.js'
 
 export type SkeletonProps = ComponentProps<'span'> & { width?: string | number; height?: string | number }
 
