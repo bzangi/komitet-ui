@@ -1,0 +1,165 @@
+/* Tabs — Figma 14:2021 */
+.k-segment[data-state='active'] {
+  background: var(--k-brand);
+  color: var(--k-onbrand);
+}
+
+.k-tabs__content {
+  padding-top: var(--k-space-12);
+}
+
+.k-tabs__content:focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: 2px;
+}
+
+/* Breadcrumb — Figma 14:2104 */
+.k-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--k-ink);
+  font: var(--k-text-body-small);
+}
+
+.k-breadcrumb li + li::before {
+  content: '/';
+  margin: 0 0.5em;
+}
+
+.k-breadcrumb a {
+  color: inherit;
+}
+
+.k-breadcrumb a:focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: 2px;
+}
+
+/* Accordion (14:2129) e Collapsible (14:2178) */
+.k-disclosure {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+}
+
+.k-disclosure__heading {
+  margin: 0;
+  font: inherit;
+}
+
+.k-disclosure__trigger {
+  all: unset;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--k-space-12);
+  width: 100%;
+  padding: var(--k-space-12);
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-soft);
+  color: var(--k-ink);
+  font: var(--k-text-control);
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.k-disclosure__trigger::after {
+  content: '+';
+  flex: none;
+}
+
+.k-disclosure__trigger[data-state='open']::after {
+  content: '−';
+}
+
+.k-disclosure__trigger:focus-visible {
+  outline: var(--k-border-2) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-2) * -1);
+}
+
+.k-disclosure__trigger:disabled {
+  color: var(--k-muted);
+  cursor: not-allowed;
+}
+
+.k-disclosure__content {
+  color: var(--k-ink);
+  font: var(--k-text-body);
+  overflow-wrap: anywhere;
+}
+
+.k-disclosure__content > p {
+  margin: 0;
+}
+
+/* Accordion: itens empilhados com o mesmo espaçamento. */
+.k-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+}
+
+/* Sidebar — Figma 14:2227 */
+.k-sidebar {
+  box-sizing: border-box;
+  display: flex;
+  padding: calc(var(--k-space-4) - var(--k-border-1) * 2);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-3);
+  background: var(--k-metal);
+  box-shadow: var(--k-raised);
+}
+
+.k-sidebar__face {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+  padding: var(--k-space-12);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-surface);
+}
+
+.k-sidebar__title {
+  margin: 0;
+  color: var(--k-ink);
+  font: var(--k-text-heading-m);
+  overflow-wrap: anywhere;
+}
+
+.k-sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.k-sidebar__item {
+  box-sizing: border-box;
+  display: block;
+  padding: var(--k-space-8);
+  border: var(--k-border-1) solid transparent;
+  color: var(--k-ink);
+  font: var(--k-text-body);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.k-sidebar__item[aria-current='page'] {
+  border-color: var(--k-brand);
+  background: var(--k-soft);
+}
+
+.k-sidebar__item:focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: -3px;
+}

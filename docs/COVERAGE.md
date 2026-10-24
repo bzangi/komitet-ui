@@ -50,11 +50,11 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Table | 13:2422 · 13:2587 · 13:2752 | ⬜ | |
 | DataTable | 13:2923 | ⬜ | |
 | Pagination | 13:3436 | ⬜ | |
-| Tabs | 14:2021 | ⬜ | |
-| Breadcrumb | 14:2104 | ⬜ | |
-| Accordion | 14:2129 | ⬜ | |
-| Collapsible | 14:2178 | ⬜ | |
-| Sidebar | 14:2227 | ⬜ | |
+| Tabs | 14:2021 | ✅ | setas; segmentos |
+| Breadcrumb | 14:2104 | ✅ | nav + aria-current |
+| Accordion | 14:2129 | ✅ | + / −; aria-expanded |
+| Collapsible | 14:2178 | ✅ |  |
+| Sidebar | 14:2227 | ✅ | `SidebarItem current`; asChild para router |
 | Alert | 14:2337 | ✅ | tom default/warning/error; role alert/status |
 | Toast | 14:2410 | ✅ | `<Toaster>` + `toast()`; sem botão fechar (ver 25) |
 | Empty | 14:2461 | ✅ |  |
@@ -112,3 +112,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 25. **Toast:** o Figma não tem botão de fechar. A lib não adiciona um: a notificação some sozinha (o tempo pausa com hover ou foco), com Esc (F8 leva o foco à área de notificações) ou com gesto de arrastar. O Error usa `type="foreground"`, anunciado com mais prioridade.
 26. **Alert “Default”** usa a moldura `good` (verde), portanto é um aviso positivo, não neutro. A API chama esse tom de `default` para manter o nome do Figma.
 27. **DescriptionList, Item e AspectRatio** aparecem no Figma sobre uma placa (aro + face). A placa é tratada como contêiner (`Card material="plate"`), não como parte do componente.
+28. **Sidebar Selected:** o Figma troca o relevo do aro inteiro para Inset quando há um item selecionado. Como sempre há um item atual, a lib mantém o aro Raised e marca só o item (`soft` + borda `brand` + `aria-current`).
+29. **Catálogo:** a regra `landmark-unique` do axe está desligada no Storybook, porque cada story é renderizada uma vez por tema e isso duplica os landmarks. Num app com um único tema a regra se aplica normalmente.

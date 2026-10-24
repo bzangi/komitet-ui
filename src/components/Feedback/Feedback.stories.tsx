@@ -51,8 +51,6 @@ export const Vazio: Story = {
 
 export const Notificacoes: Story = {
   name: 'Toast',
-  // Um Toaster por tema só porque o catálogo mostra os dois lado a lado; num app há um único.
-  parameters: { a11y: { config: { rules: [{ id: 'landmark-unique', enabled: false }] } } },
   render: () => (
     <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap' }}>
       <Button onClick={() => toast({ title: 'Registro salvo', description: 'A informação está disponível para a equipe.' })}>Salvar</Button>

@@ -29,7 +29,8 @@ const preview: Preview = {
   initialGlobals: { theme: 'both' },
   parameters: {
     layout: 'fullscreen',
-    a11y: { test: 'error' },
+    // landmark-unique desligada: o catálogo duplica cada story (um tema por coluna), o que duplica landmarks.
+    a11y: { test: 'error', config: { rules: [{ id: 'landmark-unique', enabled: false }] } },
   },
   decorators: [
     (Story, { globals }) => {
