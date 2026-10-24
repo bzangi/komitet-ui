@@ -1,5 +1,6 @@
 @import './tokens.css';
 @import '../components/Badge/badge.css';
+@import '../components/Basics/basics.css';
 @import '../components/Button/button.css';
 @import '../components/Card/card.css';
 @import '../components/Checkbox/checkbox.css';

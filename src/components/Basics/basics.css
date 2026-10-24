@@ -1,0 +1,117 @@
+/* Elementos básicos — Figma 10:168 · 10:7 · 10:141 · 10:203 · 10:258 · 10:285 */
+.k-skeleton {
+  display: block;
+  max-width: 100%;
+  background: var(--k-soft);
+}
+
+.k-avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  background: var(--k-brand);
+  color: var(--k-onbrand);
+  font: var(--k-text-heading-m);
+}
+
+.k-spinner {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--k-space-8);
+  color: var(--k-muted);
+  font: var(--k-text-body-small);
+}
+
+.k-spinner__ring {
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: var(--k-border-3) dashed var(--k-muted);
+  border-radius: var(--k-radius-999);
+  background: var(--k-surface);
+  animation: k-spin 1.6s linear infinite;
+}
+
+@keyframes k-spin {
+  to {
+    rotate: 1turn;
+  }
+}
+
+.k-kbd {
+  box-sizing: border-box;
+  display: inline-block;
+  padding: var(--k-space-8);
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-surface);
+  box-shadow: var(--k-raised);
+  color: var(--k-ink);
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+}
+
+.k-separator {
+  flex: none;
+  background: var(--k-line);
+}
+
+.k-separator[data-orientation='horizontal'] {
+  width: 100%;
+  height: 2px;
+}
+
+.k-separator[data-orientation='vertical'] {
+  width: 2px;
+  align-self: stretch;
+}
+
+.k-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+}
+
+.k-progress__label {
+  color: var(--k-ink);
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+}
+
+.k-progress__track {
+  position: relative;
+  height: 14px;
+  overflow: hidden;
+  background: var(--k-soft);
+}
+
+.k-progress__fill {
+  height: 100%;
+  background: var(--k-brand);
+  transition: width var(--k-duration);
+}
+
+/* Indeterminado: um segmento percorre o trilho; estático com movimento reduzido. */
+.k-progress__fill[data-state='indeterminate'] {
+  width: 35%;
+  animation: k-progress-sweep 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes k-progress-sweep {
+  from {
+    translate: 0;
+  }
+  to {
+    translate: calc(100% / 0.35 - 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .k-spinner__ring,
+  .k-progress__fill[data-state='indeterminate'] {
+    animation: none;
+  }
+}

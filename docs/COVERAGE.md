@@ -15,18 +15,18 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 |---|---|---|
 | Pacote instalável em consumidor `moduleResolution: NodeNext` | ⬜ | `.d.ts` emitidos com imports relativos sem `.js`; validar com `npm pack` + app limpo |
 | `Theme` → contexto para portais (overlays herdam o tema) | ⬜ | antes do primeiro overlay |
-| Decisão sobre texto de status (divergência 9) | ⬜ | aguardando o dono do design |
+| Decisão sobre texto de status (divergência 9) | ✅ | aprovado em 2026-10-23: escurecer só o texto (`--k-*-text`) |
 
 ## Componentes
 | Componente | Figma | Status | Nota |
 |---|---|---|---|
-| Avatar | 10:7 | ⬜ | |
+| Avatar | 10:7 | ✅ | iniciais; Empty = sem `name` |
 | Badge | 10:54 | ✅ | necessário para os estados do Card |
-| Spinner | 10:141 | ⬜ | |
-| Skeleton | 10:168 | ⬜ | |
-| Kbd | 10:203 | ⬜ | |
-| Separator | 10:258 | ⬜ | |
-| Progress | 10:285 | ⬜ | |
+| Spinner | 10:141 | ✅ | role=status; rotação funcional (interpretação) |
+| Skeleton | 10:168 | ✅ | estático |
+| Kbd | 10:203 | ✅ |  |
+| Separator | 10:258 | ✅ |  |
+| Progress | 10:285 | ✅ | `value=null` indeterminado |
 | Button | 11:89 · 11:198 · 11:307 · 11:416 · 18:3525 | ✅ | 4 variantes, 3 tamanhos, loading, asChild |
 | IconButton | 18:3588 | ✅ | aria-label obrigatório |
 | SignalButton | 11:519 | ⬜ | |
@@ -46,7 +46,7 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | SearchInput | 12:1299 | ⬜ | |
 | PasswordInput | 12:1396 | ⬜ | |
 | InputGroup | 12:1493 | ⬜ | |
-| Card | 13:639 · 13:1080 · 13:1549 · 13:2018 | ✅ | paper/plate/compact; Module = Plate. Story de Loading usa barras provisórias até o Skeleton |
+| Card | 13:639 · 13:1080 · 13:1549 · 13:2018 | ✅ | paper/plate/compact; Module = Plate. |
 | Table | 13:2422 · 13:2587 · 13:2752 | ⬜ | |
 | DataTable | 13:2923 | ⬜ | |
 | Pagination | 13:3436 | ⬜ | |
@@ -93,10 +93,12 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 6. **Card com Focus** só existe quando o card é interativo (`asChild` com link/botão).
 7. **Loading do Button** é visualmente igual ao Disabled (face `soft`), só troca o rótulo por “Aguarde…”. Implementado com `aria-busy` + `aria-disabled`, mantendo o foco; sem spinner extra.
 8. **Label** usa conteúdo em caixa alta no Figma, mas `textCase=ORIGINAL`. A lib não força caixa alta.
-9. **Contraste de texto de status:** os tons `good`/`warn`/`bad` passam 4.5:1 sobre `surface`, mas não sobre `paper` (Industrial: `bad` 2.82:1, `good` 3.30:1, `warn` 2.85:1; Construtivista: `warn` 4.33:1). O próprio Figma põe a mensagem de erro do Input Industrial sobre `paper` (frame 12:302). A lib usa `--k-good-text`/`--k-warn-text`/`--k-bad-text`, misturados com `ink` só o necessário para ≥ 4.5:1 sobre `paper` e `surface`. Na Industrial o resultado é bem mais escuro que o tom original. Lentes, bordas e o Badge (fundo `surface`) usam o tom puro. **Decisão pendente do dono do design.**
+9. **Contraste de texto de status:** os tons `good`/`warn`/`bad` passam 4.5:1 sobre `surface`, mas não sobre `paper` (Industrial: `bad` 2.82:1, `good` 3.30:1, `warn` 2.85:1; Construtivista: `warn` 4.33:1). O próprio Figma põe a mensagem de erro do Input Industrial sobre `paper` (frame 12:302). A lib usa `--k-good-text`/`--k-warn-text`/`--k-bad-text`, misturados com `ink` só o necessário para ≥ 4.5:1 sobre `paper` e `surface`. Na Industrial o resultado é bem mais escuro que o tom original. Lentes, bordas e o Badge (fundo `surface`) usam o tom puro. **Aprovado pelo Bruno em 2026-10-23.**
 10. **Card/Module** é idêntico ao Card/Plate em todas as variantes, nos dois temas (verificado por comparação estrutural). A API expõe `paper | plate | compact`.
 11. **Button/Quiet** não tem diferença visual em Hover, Focus nem Pressed no Figma. A lib aplica o mesmo traço de foco das outras teclas (obrigatório para teclado); hover e pressed continuam sem efeito.
 12. **Largura do Button:** o Figma usa largura fixa (112/140/180) e padding de 4 px. A lib usa essas larguras como `min-width` e 12 px de padding lateral, para rótulos longos.
 13. **Ícones:** o IconButton usa “add” do Material 3 Design Kit (biblioteca remota). A lib recebe o ícone por slot e não distribui ícones.
 14. **Marca do Checkbox:** o Figma usa os glifos de texto “✓” e “−” em PT Sans Bold. PT Sans não tem “✓”, então o desenho do glifo depende da fonte de fallback, tanto no Figma quanto no navegador.
 15. **Card/Paper:** o frame tem 2 px de moldura na vertical e 3 px na horizontal. A lib usa 3 px nos dois eixos.
+16. **Spinner e Progress indeterminado** são estáticos no Figma. A lib anima a rotação do anel e o deslocamento do segmento, por serem indicadores funcionais de atividade, e os dois param com `prefers-reduced-motion`. Skeleton continua estático.
+17. **Larguras fixas de texto:** vários frames do Figma fixam a largura dos textos (por exemplo, a tecla Kbd com 68 px e o rótulo do Spinner com 164 px). Na lib os componentes se ajustam ao conteúdo.

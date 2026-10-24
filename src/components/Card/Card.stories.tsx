@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect, userEvent } from 'storybook/test'
 import { eachTheme, figma } from '../../../.storybook/play'
 import { Badge } from '../Badge/Badge'
+import { Skeleton } from '../Basics/Basics'
 import { Button } from '../Button/Button'
 import { Card, CardActions, CardContent, CardHeader, CardMeta, CardTitle, type CardProps } from './Card'
 
@@ -33,8 +34,6 @@ const Manual = ({ action = 'Abrir documento', children, ...props }: CardProps & 
   </Card>
 )
 
-const Bar = ({ width }: { width: string }) => <div aria-hidden style={{ height: 12, width, background: 'var(--k-soft)' }} />
-
 const states = (material: CardProps['material']) => (
   <div style={grid}>
     <Manual material={material} />
@@ -49,8 +48,8 @@ const states = (material: CardProps['material']) => (
       </CardHeader>
       <CardContent>
         <p style={{ font: 'var(--k-text-body-small)', color: 'var(--k-muted)' }}>Carregando conteúdo…</p>
-        <Bar width="100%" />
-        <Bar width="67%" />
+        <Skeleton height={12} />
+        <Skeleton height={12} width="67%" />
       </CardContent>
       <CardActions>
         <Button variant="secondary" loading>
