@@ -1,0 +1,66 @@
+/* Toggle (11:578) e SignalButton (11:519) — reaproveitam a tecla de .k-button. */
+.k-button:is([data-variant='toggle'], [data-variant='signal']) {
+  --k-button-min-width: 160px;
+  --k-button-face: var(--k-surface);
+  --k-button-text: var(--k-ink);
+}
+
+.k-button[data-variant='signal'] {
+  --k-button-face: var(--k-signal);
+}
+
+.k-button:is([data-variant='toggle'], [data-variant='signal'])[data-state='on'] {
+  box-shadow: var(--k-inset);
+}
+
+.k-button[data-variant='toggle'][data-state='on'] {
+  --k-button-face: var(--k-brand);
+  --k-button-text: var(--k-onbrand);
+}
+
+.k-button[data-variant='signal'][data-state='on'] .k-button__face {
+  box-shadow: var(--k-inset);
+}
+
+.k-button:is([data-variant='toggle'], [data-variant='signal']):disabled {
+  --k-button-face: var(--k-soft);
+  --k-button-text: var(--k-ink);
+}
+
+/* ButtonGroup (11:635) e ToggleGroup (11:702) — segmentos com moldura de metal. */
+.k-segments {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--k-space-4);
+  max-width: 100%;
+}
+
+.k-segment {
+  all: unset;
+  box-sizing: border-box;
+  min-width: 0;
+  min-height: 40px;
+  padding: var(--k-space-8) var(--k-space-12);
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-soft);
+  color: var(--k-ink);
+  font: var(--k-text-control);
+  text-align: center;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.k-segment:is([data-active], [data-state='on']) {
+  background: var(--k-brand);
+  color: var(--k-onbrand);
+}
+
+.k-segment:focus-visible {
+  outline: var(--k-border-2) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-2) * -1);
+}
+
+.k-segment:disabled {
+  color: var(--k-muted);
+  cursor: not-allowed;
+}

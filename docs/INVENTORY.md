@@ -20,10 +20,10 @@ Regras de conversão:
 | 01 | Progress `10:285` | `Progress` | `value=null` indeterminado (Loading); `value=max` Complete | radix-ui Progress |
 | 02 | Button/Primary `11:89` · Secondary `11:198` · Destructive `11:307` · Quiet `11:416` · Button/Size `18:3525` | `Button` | `variant`, `size` sm/md/lg (32/42/52), `loading`, `disabled`, `asChild` | radix-ui Slot |
 | 13 | IconButton `18:3588` | `IconButton` | `aria-label` obrigatório, `icon`, `size` | — |
-| 02 | SignalButton `11:519` | `SignalButton` | `pressed`/`defaultPressed`/`onPressedChange` | radix-ui Toggle |
+| 02 | SignalButton `11:519` | `Toggle variant="signal"` | `pressed`/`defaultPressed`/`onPressedChange` | radix-ui Toggle |
 | 02 | Toggle `11:578` | `Toggle` | idem | radix-ui Toggle |
-| 02 | ButtonGroup `11:635` | `ButtonGroup` | role=group; Default/Second = item | — |
-| 02 | ToggleGroup `11:702` | `ToggleGroup` | `type` single/multiple | radix-ui ToggleGroup |
+| 02 | ButtonGroup `11:635` | `ButtonGroup` + `ButtonGroupItem` | role=group; Default/Second = item `primary` | — |
+| 02 | ToggleGroup `11:702` | `ToggleGroup` + `ToggleGroupItem` | `type` single/multiple | radix-ui ToggleGroup |
 | 13 | Field `18:3699` | `Field` | `label`, `description`, `error`, `success`; liga ids/aria | — |
 | 03 | Label `12:1584` | `Label` | — | radix-ui Label |
 | 03 | Input `12:251` | `Input` | Error/Success via Field; ReadOnly/Disabled nativos | — |

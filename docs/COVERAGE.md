@@ -29,10 +29,10 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Progress | 10:285 | ✅ | `value=null` indeterminado |
 | Button | 11:89 · 11:198 · 11:307 · 11:416 · 18:3525 | ✅ | 4 variantes, 3 tamanhos, loading, asChild |
 | IconButton | 18:3588 | ✅ | aria-label obrigatório |
-| SignalButton | 11:519 | ⬜ | |
-| Toggle | 11:578 | ⬜ | |
-| ButtonGroup | 11:635 | ⬜ | |
-| ToggleGroup | 11:702 | ⬜ | |
+| SignalButton | 11:519 | ✅ | `<Toggle variant="signal">` |
+| Toggle | 11:578 | ✅ | aria-pressed; rótulo preservado |
+| ButtonGroup | 11:635 | ✅ | `ButtonGroupItem primary` = ênfase |
+| ToggleGroup | 11:702 | ✅ | single/multiple, setas |
 | Field | 18:3699 | ✅ | label/description/error/success, hideLabel |
 | Label | 12:1584 | ✅ |  |
 | Input | 12:251 | ✅ | Empty/Filled/Focus/Error/Success/ReadOnly/Disabled |
@@ -102,3 +102,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 15. **Card/Paper:** o frame tem 2 px de moldura na vertical e 3 px na horizontal. A lib usa 3 px nos dois eixos.
 16. **Spinner e Progress indeterminado** são estáticos no Figma. A lib anima a rotação do anel e o deslocamento do segmento, por serem indicadores funcionais de atividade, e os dois param com `prefers-reduced-motion`. Skeleton continua estático.
 17. **Larguras fixas de texto:** vários frames do Figma fixam a largura dos textos (por exemplo, a tecla Kbd com 68 px e o rótulo do Spinner com 164 px). Na lib os componentes se ajustam ao conteúdo.
+18. **SignalButton:** a descrição fala em “lente”, mas o desenho não tem lente. O estado Selected só afunda a tecla (Inset no aro e na face), e a lib reproduz isso. Para tecnologias assistivas, o estado é exposto por `aria-pressed`.
+19. **ButtonGroup e ToggleGroup** são visualmente idênticos. No ButtonGroup, o item em `brand` foi interpretado como ênfase de comando (`primary`). No ToggleGroup, ele é a seleção. Os segmentos não têm Hover, Focus, Pressed nem Disabled desenhados: a lib usa o foco tracejado padrão e o texto `muted` para Disabled.
