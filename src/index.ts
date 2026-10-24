@@ -33,3 +33,18 @@ export { AspectRatio, DescriptionItem, DescriptionList, Item } from './component
 export type { AspectRatioProps, DescriptionItemProps, ItemProps } from './components/Content/Content'
 export { Accordion, AccordionItem, Breadcrumb, Collapsible, Sidebar, SidebarItem, Tabs, TabsContent, TabsList, TabsTrigger } from './components/Navigation/Navigation'
 export type { AccordionItemProps, AccordionProps, BreadcrumbProps, CollapsibleProps, SidebarItemProps, SidebarProps } from './components/Navigation/Navigation'
+export { ThemeScope } from './theme/Theme'
+export {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogTrigger,
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogTrigger,
+  DrawerContent,
+  SheetContent,
+} from './components/Overlay/Modal'
+export type { AlertDialogContentProps, DialogContentProps } from './components/Overlay/Modal'

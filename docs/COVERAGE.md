@@ -7,14 +7,14 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Item | Status | Nota |
 |---|---|---|
 | Tokens (Primitives, semânticos por tema, Metrics, Typography, relevos) | ✅ | comparados com 7:2, 7:74 e 7:87 no Storybook |
-| `Theme` | 🟡 | sem container de portal (entra com overlays) |
+| `Theme` | ✅ | contexto + `ThemeScope` reaplicam o tema dentro de portais |
 | Tokens de texto de status (`--k-*-text`) | ✅ | ver divergência 9 |
 
 ## Pendências transversais
 | Item | Status | Nota |
 |---|---|---|
 | Pacote instalável em consumidor `moduleResolution: NodeNext` | ⬜ | `.d.ts` emitidos com imports relativos sem `.js`; validar com `npm pack` + app limpo |
-| `Theme` → contexto para portais (overlays herdam o tema) | ⬜ | antes do primeiro overlay |
+| `Theme` → contexto para portais (overlays herdam o tema) | ✅ | testado no Dialog nos dois temas |
 | Decisão sobre texto de status (divergência 9) | ✅ | aprovado em 2026-10-23: escurecer só o texto (`--k-*-text`) |
 
 ## Componentes
@@ -58,10 +58,10 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Alert | 14:2337 | ✅ | tom default/warning/error; role alert/status |
 | Toast | 14:2410 | ✅ | `<Toaster>` + `toast()`; sem botão fechar (ver 25) |
 | Empty | 14:2461 | ✅ |  |
-| Dialog | 15:2163 | ⬜ | |
-| AlertDialog | 15:2474 | ⬜ | |
-| Sheet | 15:2657 | ⬜ | |
-| Drawer | 15:2888 | ⬜ | |
+| Dialog | 15:2163 | ✅ | foco preso, Esc, retorno do foco; status error/success |
+| AlertDialog | 15:2474 | ✅ | só fecha pelas ações; foco inicial em Cancelar |
+| Sheet | 15:2657 | ✅ | `SheetContent` (direita, altura total) |
+| Drawer | 15:2888 | ✅ | `DrawerContent` (base); sem gesto de arrasto |
 | DropdownMenu | 15:3086 | ⬜ | |
 | ContextMenu | 15:3261 | ⬜ | |
 | Menubar | 15:3416 | ⬜ | |
@@ -114,3 +114,4 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 27. **DescriptionList, Item e AspectRatio** aparecem no Figma sobre uma placa (aro + face). A placa é tratada como contêiner (`Card material="plate"`), não como parte do componente.
 28. **Sidebar Selected:** o Figma troca o relevo do aro inteiro para Inset quando há um item selecionado. Como sempre há um item atual, a lib mantém o aro Raised e marca só o item (`soft` + borda `brand` + `aria-current`).
 29. **Catálogo:** a regra `landmark-unique` do axe está desligada no Storybook, porque cada story é renderizada uma vez por tema e isso duplica os landmarks. Num app com um único tema a regra se aplica normalmente.
+30. **Modais:** o Figma não desenha o fundo escurecido nem botão de fechar. A lib usa `ink` a 40% como fundo, e o fechamento é por Esc, clique fora ou ação explícita. O AlertDialog só fecha pelas ações. Sheet ancora à direita em altura total e Drawer na base (até 420 px), porque o Figma só mostra os painéis isolados, sem posição na tela. Os estados Form, Loading, Error e Success são composições (`status`, `Button loading`).
