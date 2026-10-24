@@ -20,7 +20,9 @@
 .k-field__hint[data-status='error'] { color: var(--k-bad-text); }
 .k-field__hint[data-status='success'] { color: var(--k-good-text); }
 
-.k-input {
+/* Campo — Input (12:251), Textarea (12:422), Select (12:567), FileInput (12:1220), InputGroup (12:1493) */
+.k-input,
+.k-input-group {
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
@@ -41,30 +43,141 @@
   opacity: 1;
 }
 
-.k-input[aria-invalid='true'] { border-color: var(--k-bad); }
-.k-input[data-status='success'] { border-color: var(--k-good); }
+.k-input[aria-invalid='true'],
+.k-input-group:has([aria-invalid='true']) { border-color: var(--k-bad); }
+
+.k-input[data-status='success'],
+.k-input-group:has([data-status='success']) { border-color: var(--k-good); }
 
 /* Foco: traço tracejado em ink; em erro, o tracejado mantém a cor do erro. */
-.k-input:focus-visible {
+.k-input:is(:focus-visible, :has(:focus-visible)),
+.k-input-group:has(> .k-input:focus-visible) {
   outline: none;
   border-style: dashed;
   border-color: var(--k-ink);
 }
 
-.k-input[aria-invalid='true']:focus-visible { border-color: var(--k-bad); }
+.k-input[aria-invalid='true']:focus-visible,
+.k-input-group:has(> .k-input[aria-invalid='true']:focus-visible) { border-color: var(--k-bad); }
 
-.k-input:read-only {
+.k-input:read-only:not(select, .k-file, :disabled),
+.k-input-group:has(> .k-input:read-only:not(:disabled)) {
   border-style: dashed;
   background: var(--k-soft);
   box-shadow: none;
 }
 
-.k-input:disabled {
+.k-input:disabled,
+.k-file:has(:disabled),
+.k-input-group:has(> .k-input:disabled) {
   border-style: solid;
   background: var(--k-soft);
   box-shadow: var(--k-inset);
   color: var(--k-muted);
   cursor: not-allowed;
+}
+
+.k-textarea {
+  display: block;
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* Select nativo com o glifo ▾ do Figma. */
+.k-select {
+  position: relative;
+  display: block;
+  min-width: 0;
+}
+
+.k-select > .k-input {
+  appearance: none;
+  padding-right: var(--k-space-40);
+  cursor: pointer;
+}
+
+.k-select > .k-input:has(> option[value='']:checked) {
+  color: var(--k-muted);
+}
+
+.k-select::after {
+  content: '▾';
+  position: absolute;
+  top: 50%;
+  right: var(--k-space-12);
+  translate: 0 -50%;
+  color: var(--k-ink);
+  font: var(--k-text-label);
+  pointer-events: none;
+}
+
+/* InputGroup — o controle interno perde o material; o grupo assume. */
+.k-input-group {
+  display: flex;
+  align-items: center;
+  gap: var(--k-space-8);
+}
+
+.k-input-group > .k-input {
+  flex: 1;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  color: inherit;
+}
+
+.k-input-group__addon {
+  flex: none;
+}
+
+.k-input-group__action {
+  all: unset;
+  flex: none;
+  cursor: pointer;
+}
+
+.k-input-group__action:focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: 2px;
+}
+
+.k-input-group__action:disabled {
+  cursor: not-allowed;
+}
+
+/* FileInput — input nativo invisível sobre o campo inteiro. */
+.k-file {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  font: var(--k-text-body-small);
+  letter-spacing: normal;
+}
+
+.k-file:not([data-filled]) .k-file__text {
+  color: var(--k-muted);
+}
+
+.k-file__native {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.k-file__native:disabled {
+  cursor: not-allowed;
+}
+
+.k-file__text {
+  overflow-wrap: anywhere;
+}
+
+.k-file__sep {
+  margin: 0 var(--k-space-12);
 }
 
 .k-sr-only {

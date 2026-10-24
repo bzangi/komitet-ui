@@ -36,16 +36,16 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Field | 18:3699 | ✅ | label/description/error/success, hideLabel |
 | Label | 12:1584 | ✅ |  |
 | Input | 12:251 | ✅ | Empty/Filled/Focus/Error/Success/ReadOnly/Disabled |
-| Textarea | 12:422 | ⬜ | |
-| Select | 12:567 | ⬜ | |
+| Textarea | 12:422 | ✅ |  |
+| Select | 12:567 | ✅ | `<select>` nativo |
 | Checkbox | 12:692 | ✅ | Mixed = indeterminate |
-| RadioGroup | 12:813 | ⬜ | |
+| RadioGroup | 12:813 | ✅ | setas, rótulo clicável |
 | Switch | 12:916 | ✅ |  |
-| Slider | 12:1087 | ⬜ | |
-| FileInput | 12:1220 | ⬜ | |
-| SearchInput | 12:1299 | ⬜ | |
-| PasswordInput | 12:1396 | ⬜ | |
-| InputGroup | 12:1493 | ⬜ | |
+| Slider | 12:1087 | ✅ | valor + unidade no rótulo e em aria-valuetext |
+| FileInput | 12:1220 | ✅ | input nativo sobre o campo |
+| SearchInput | 12:1299 | ✅ | `<Input type="search">` |
+| PasswordInput | 12:1396 | ✅ | revelar com aria-pressed |
+| InputGroup | 12:1493 | ✅ | `InputGroup` + `InputAddon` |
 | Card | 13:639 · 13:1080 · 13:1549 · 13:2018 | ✅ | paper/plate/compact; Module = Plate. |
 | Table | 13:2422 · 13:2587 · 13:2752 | ⬜ | |
 | DataTable | 13:2923 | ⬜ | |
@@ -104,3 +104,8 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 17. **Larguras fixas de texto:** vários frames do Figma fixam a largura dos textos (por exemplo, a tecla Kbd com 68 px e o rótulo do Spinner com 164 px). Na lib os componentes se ajustam ao conteúdo.
 18. **SignalButton:** a descrição fala em “lente”, mas o desenho não tem lente. O estado Selected só afunda a tecla (Inset no aro e na face), e a lib reproduz isso. Para tecnologias assistivas, o estado é exposto por `aria-pressed`.
 19. **ButtonGroup e ToggleGroup** são visualmente idênticos. No ButtonGroup, o item em `brand` foi interpretado como ênfase de comando (`primary`). No ToggleGroup, ele é a seleção. Os segmentos não têm Hover, Focus, Pressed nem Disabled desenhados: a lib usa o foco tracejado padrão e o texto `muted` para Disabled.
+20. **Select:** o Figma só desenha o campo fechado com o glifo ▾, sem a lista aberta. A lib usa o `<select>` nativo estilizado, cuja lista é a do sistema operacional, em vez de inventar o desenho de um popup.
+21. **SearchInput** é idêntico ao Input no Figma (sem ícone nem botão de limpar). Implementado como `<Input type="search">`.
+22. **FileInput vazio:** o placeholder do Figma (“Nome da estação”) é texto copiado do Input. A lib usa “Selecionar arquivo”, o mesmo prefixo do estado preenchido.
+23. **Mensagem de erro do Select no Figma** (“Use pelo menos 4 caracteres.”) também é texto copiado do Input. O conteúdo é do consumidor.
+24. **InputGroup:** a unidade (por exemplo, “V”) é só visual. Inclua a unidade no rótulo ou na descrição do `Field` para que seja anunciada.

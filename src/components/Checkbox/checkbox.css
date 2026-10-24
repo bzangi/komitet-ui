@@ -97,3 +97,21 @@
 .k-switch__thumb[data-state='checked'] {
   translate: 21px 0;
 }
+
+/* RadioGroup — Figma 12:813 */
+.k-radio-group {
+  display: grid;
+  justify-items: start;
+  gap: var(--k-space-4);
+}
+
+.k-radio {
+  border-radius: var(--k-radius-999);
+}
+
+.k-radio__dot {
+  width: 9px;
+  height: 9px;
+  border-radius: var(--k-radius-999);
+  background: var(--k-brand);
+}

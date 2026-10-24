@@ -1,0 +1,61 @@
+/* Slider — trilho mecânico e cursor com ranhuras. Figma 12:1087 */
+.k-slider {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+}
+
+.k-slider__label {
+  color: var(--k-ink);
+  font: var(--k-text-control);
+}
+
+.k-slider__control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 32px;
+  touch-action: none;
+  user-select: none;
+}
+
+.k-slider__control:has(:focus-visible) {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-1) * -1);
+}
+
+.k-slider__control[data-disabled] {
+  cursor: not-allowed;
+}
+
+.k-slider__track {
+  box-sizing: border-box;
+  flex: 1;
+  height: 8px;
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-muted);
+}
+
+.k-slider__thumb {
+  --k-groove: linear-gradient(var(--k-line), var(--k-line));
+
+  box-sizing: border-box;
+  display: block;
+  width: 20px;
+  height: 30px;
+  border: var(--k-border-3) solid var(--k-metal);
+  border-radius: var(--k-radius-3);
+  background:
+    var(--k-groove) 1px 5px / 12px 1px no-repeat,
+    var(--k-groove) 1px 9px / 12px 1px no-repeat,
+    var(--k-groove) 1px 13px / 12px 1px no-repeat,
+    var(--k-groove) 1px 17px / 12px 1px no-repeat,
+    var(--k-surface);
+  box-shadow: var(--k-raised);
+  cursor: grab;
+}
+
+.k-slider__thumb:focus-visible {
+  outline: none;
+}

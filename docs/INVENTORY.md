@@ -28,15 +28,15 @@ Regras de conversão:
 | 03 | Label `12:1584` | `Label` | — | radix-ui Label |
 | 03 | Input `12:251` | `Input` | Error/Success via Field; ReadOnly/Disabled nativos | — |
 | 03 | Textarea `12:422` | `Textarea` | idem | — |
-| 03 | Select `12:567` | `Select` | controlado/não controlado | radix-ui Select |
+| 03 | Select `12:567` | `Select` | `<select>` nativo; `placeholder` | — |
 | 03 | Checkbox `12:692` | `Checkbox` | `checked` boolean/'indeterminate' (Mixed); DisabledOn = disabled+checked | radix-ui Checkbox |
-| 03 | RadioGroup `12:813` | `RadioGroup` | `RadioGroup.Item` | radix-ui RadioGroup |
+| 03 | RadioGroup `12:813` | `RadioGroup` + `RadioGroupItem` | — | radix-ui RadioGroup |
 | 03 | Switch `12:916` | `Switch` | `checked`/`defaultChecked` | radix-ui Switch |
 | 03 | Slider `12:1087` | `Slider` | valor e unidade visíveis | radix-ui Slider |
 | 03 | FileInput `12:1220` | `FileInput` | input file nativo | — |
-| 03 | SearchInput `12:1299` | `SearchInput` | type=search | — |
+| 03 | SearchInput `12:1299` | `Input type="search"` | — | — |
 | 03 | PasswordInput `12:1396` | `PasswordInput` | revelar com `aria-pressed` | — |
-| 03 | InputGroup `12:1493` | `InputGroup` | `InputGroup.Addon` | — |
+| 03 | InputGroup `12:1493` | `InputGroup` + `InputAddon` | — | — |
 | 04 | Card/Paper `13:639` · Plate `13:1080` · Module `13:1549` · Compact `13:2018` | `Card` + partes | `material`, `selected`, `disabled`; Loading/Empty/Error = composições | — |
 | 05 | Table/Standard `13:2422` · Compact `13:2587` · Zebra `13:2752` | `Table` | `density`, `striped`, linha `selected` | — |
 | 05 | DataTable `13:2923` | `DataTable` | seleção, `loading`, `empty`, `error` | — |
