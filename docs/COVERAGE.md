@@ -55,9 +55,9 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Accordion | 14:2129 | ⬜ | |
 | Collapsible | 14:2178 | ⬜ | |
 | Sidebar | 14:2227 | ⬜ | |
-| Alert | 14:2337 | ⬜ | |
-| Toast | 14:2410 | ⬜ | |
-| Empty | 14:2461 | ⬜ | |
+| Alert | 14:2337 | ✅ | tom default/warning/error; role alert/status |
+| Toast | 14:2410 | ✅ | `<Toaster>` + `toast()`; sem botão fechar (ver 25) |
+| Empty | 14:2461 | ✅ |  |
 | Dialog | 15:2163 | ⬜ | |
 | AlertDialog | 15:2474 | ⬜ | |
 | Sheet | 15:2657 | ⬜ | |
@@ -78,11 +78,11 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Readout | 16:4161 | ⬜ | |
 | Terminal | 16:4244 | ⬜ | |
 | Annunciator | 16:4299 | ⬜ | |
-| Item | 17:3419 | ⬜ | |
+| Item | 17:3419 | ✅ | media/title/description/action |
 | Resizable | 17:3470 | ⬜ | |
 | Carousel | 17:3561 | ⬜ | |
-| AspectRatio | 17:3644 | ⬜ | |
-| DescriptionList | 24:3601 | ⬜ | |
+| AspectRatio | 17:3644 | ✅ | CSS `aspect-ratio` |
+| DescriptionList | 24:3601 | ✅ | `DescriptionList` + `DescriptionItem` |
 
 ## Divergências e ambiguidades em relação ao Figma
 1. **Textura:** os Fundamentos pedem “textura discreta”, mas não há image fill nem gradiente nos componentes. Entregue sem textura.
@@ -109,3 +109,6 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 22. **FileInput vazio:** o placeholder do Figma (“Nome da estação”) é texto copiado do Input. A lib usa “Selecionar arquivo”, o mesmo prefixo do estado preenchido.
 23. **Mensagem de erro do Select no Figma** (“Use pelo menos 4 caracteres.”) também é texto copiado do Input. O conteúdo é do consumidor.
 24. **InputGroup:** a unidade (por exemplo, “V”) é só visual. Inclua a unidade no rótulo ou na descrição do `Field` para que seja anunciada.
+25. **Toast:** o Figma não tem botão de fechar. A lib não adiciona um: a notificação some sozinha (o tempo pausa com hover ou foco), com Esc (F8 leva o foco à área de notificações) ou com gesto de arrastar. O Error usa `type="foreground"`, anunciado com mais prioridade.
+26. **Alert “Default”** usa a moldura `good` (verde), portanto é um aviso positivo, não neutro. A API chama esse tom de `default` para manter o nome do Figma.
+27. **DescriptionList, Item e AspectRatio** aparecem no Figma sobre uma placa (aro + face). A placa é tratada como contêiner (`Card material="plate"`), não como parte do componente.
