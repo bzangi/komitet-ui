@@ -15,6 +15,8 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 |---|---|---|
 | Pacote instalável em consumidor `moduleResolution: NodeNext` | ✅ | imports relativos com `.js`; validado com `npm pack` + consumidor limpo (tsc NodeNext + import em runtime) |
 | `Theme` → contexto para portais (overlays herdam o tema) | ✅ | testado no Dialog nos dois temas |
+| **Acesso ao Figma** | ⬜ | **Bloqueado em 2026-10-23:** limite do Figma MCP no plano Starter/seat View (20 chamadas/mês segundo a documentação). Os 11 conjuntos pendentes abaixo aguardam acesso para extrair estrutura e tokens. |
+| Exemplo de composição (painel de operação) | ✅ | `Exemplos/Painel de operação`, nos dois temas, com teste de interação e baseline visual |
 | Decisão sobre texto de status (divergência 9) | ✅ | aprovado em 2026-10-23: escurecer só o texto (`--k-*-text`) |
 
 ## Componentes

@@ -98,6 +98,11 @@ Convenções:
 - Controles de formulário dentro de `Field` recebem `id`, `aria-describedby` e `aria-invalid` automaticamente.
 - `asChild` (Button, Card) aplica o material ao filho, por exemplo um `<a>` ou o `Link` do seu router.
 
+## Exemplos
+
+- `Exemplos/Painel de operação` no Storybook: índice, trilha, abas, instrumentos ligados a controles, formulário com validação, Dialog de confirmação e Toast, nos dois temas.
+- Cada família tem stories de estados, de texto longo/largura estreita e de composição.
+
 ## Desenvolvimento
 
 ```bash
@@ -105,6 +110,7 @@ npm run dev           # Storybook em http://localhost:6006 (temas lado a lado; t
 npm test              # comportamento + axe em cada story, navegador real (Chromium)
 npm run test:visual   # regressão visual dos componentes representativos nos dois temas
 npm run build         # dist/ (ESM + .d.ts + komitet-ui.css)
+npm run build-storybook # catálogo estático em storybook-static/
 ```
 
 Na primeira vez, rode `npx playwright install chromium`. Para atualizar as baselines visuais depois de uma mudança intencional, use `npm run test:visual -- --update`. As baselines dependem da plataforma (`*-chromium-darwin.png`).

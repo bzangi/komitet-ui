@@ -16,6 +16,12 @@ import * as Checkbox from './components/Checkbox/Checkbox.stories.js'
 import * as Input from './components/Input/Input.stories.js'
 import * as Switch from './components/Switch/Switch.stories.js'
 import * as Fundamentos from './foundations/Fundamentos.stories.js'
+import * as Feedback from './components/Feedback/Feedback.stories.js'
+import * as Instrumentos from './components/Instruments/Instruments.stories.js'
+import * as Navegacao from './components/Navigation/Navigation.stories.js'
+import * as Slider from './components/Slider/Slider.stories.js'
+import * as Toggle from './components/Toggle/Toggle.stories.js'
+import * as Painel from './examples/Painel.stories.js'
 import { Button as KButton, Checkbox as KCheckbox, Input as KInput, Switch as KSwitch, Theme } from './index.js'
 
 setProjectAnnotations(preview)
@@ -32,6 +38,13 @@ const stories = {
   'card-papel': composeStories(Card).Papel,
   'card-placa': composeStories(Card).Placa,
   'card-compacto': composeStories(Card).Compacto,
+  'toggle-teclas': composeStories(Toggle).Teclas,
+  'slider-estados': composeStories(Slider).Estados,
+  'alertas': composeStories(Feedback).Alertas,
+  'abas': composeStories(Navegacao).Abas,
+  'gauge': composeStories(Instrumentos).Mostradores,
+  'readout': composeStories(Instrumentos).Visores,
+  'painel-composicao': composeStories(Painel).Painel_,
 }
 
 let root: ReturnType<typeof createRoot> | undefined
@@ -43,6 +56,8 @@ const mount = async (Story: () => ReactNode) => {
   root = createRoot(container)
   flushSync(() => root!.render(<Story />))
   await document.fonts.ready
+  // Animações funcionais (Spinner, Progress) congeladas para capturas estáveis.
+  container.style.setProperty('--k-duration', '0ms')
   return container
 }
 
