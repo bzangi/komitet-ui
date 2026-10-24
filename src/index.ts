@@ -70,3 +70,5 @@ export {
   Tooltip,
 } from './components/Overlay/Menus'
 export type { HoverCardProps, TooltipProps } from './components/Overlay/Menus'
+export { Annunciator, Gauge, Readout, Terminal } from './components/Instruments/Instruments'
+export type { AnnunciatorProps, GaugeProps, ReadoutProps, TerminalProps } from './components/Instruments/Instruments'

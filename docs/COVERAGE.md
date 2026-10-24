@@ -74,10 +74,10 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Calendar | 16:3364 | ⬜ | |
 | DatePicker | 16:3713 | ⬜ | |
 | DateRange | 16:3812 | ⬜ | |
-| Gauge | 16:3896 | ⬜ | |
-| Readout | 16:4161 | ⬜ | |
-| Terminal | 16:4244 | ⬜ | |
-| Annunciator | 16:4299 | ⬜ | |
+| Gauge | 16:3896 | ✅ | role=meter; agulha linear na escala ±120° |
+| Readout | 16:4161 | ✅ | zeros à esquerda; `null` = falha anunciada |
+| Terminal | 16:4244 | ✅ | role=log; rolável por teclado |
+| Annunciator | 16:4299 | ✅ | Badge sobre placa; role=status |
 | Item | 17:3419 | ✅ | media/title/description/action |
 | Resizable | 17:3470 | ⬜ | |
 | Carousel | 17:3561 | ⬜ | |
@@ -118,3 +118,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 31. **Menus:** o estado Closed do DropdownMenu no Figma mostra o título e “Abrir opções ▾” dentro da placa. A lib trata isso como o gatilho, que o consumidor monta com `Button`. O estado Selected é o item realçado (`data-highlighted`), e o Inset no aro inteiro do Selected não foi reproduzido, como na Sidebar.
 32. **HoverCard:** o Radix HoverCard não abre por clique nem por toque. Como o Figma pede “alternativa por clique e foco”, a lib implementa o HoverCard sobre o Popover: abre com hover do mouse, com foco por teclado e com clique.
 33. **Tooltip** tem título em Heading/M no Figma, o que é pesado para uma dica. A lib reproduz o desenho (`title` é opcional).
+34. **Agulha do Gauge:** no Figma os ângulos são aproximados (24% a −35°, 64% a +12°, 88% a +55°) e não batem com as marcas da escala, que vão de −120° a +120°. A lib posiciona a agulha linearmente na escala, para que a leitura seja exata. Low, Default e High só mudam a agulha, por isso derivam do valor.
+35. **Readout:** o Figma não mostra unidade. A prop `unit` só é anunciada para leitores de tela; para quem enxerga, inclua a unidade no rótulo (por exemplo, “PRESSÃO · BAR”).
