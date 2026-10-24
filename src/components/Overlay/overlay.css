@@ -122,3 +122,73 @@
     opacity: 0;
   }
 }
+
+/* Placa flutuante — menus (15:3086 · 15:3261 · 15:3416), Popover (15:3499), HoverCard (15:3530), Tooltip (15:3561) */
+.k-popup {
+  box-sizing: border-box;
+  z-index: 1002;
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  width: max-content;
+  min-width: 220px;
+  max-width: min(300px, calc(100vw - var(--k-space-16)));
+  padding: var(--k-space-12);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  outline: 3px solid var(--k-metal);
+  outline-offset: 0;
+  background: var(--k-surface);
+  box-shadow:
+    0 0 0 4px var(--k-line),
+    var(--k-raised);
+  color: var(--k-ink);
+  font: var(--k-text-body);
+  overflow-wrap: anywhere;
+}
+
+.k-popup:focus-visible {
+  outline-style: dashed;
+  outline-color: var(--k-ink);
+}
+
+.k-popup__title {
+  margin: 0;
+  font: var(--k-text-heading-m);
+}
+
+.k-popup__body {
+  font: var(--k-text-body-small);
+}
+
+.k-popup__body > p {
+  margin: 0;
+}
+
+.k-menu__item {
+  box-sizing: border-box;
+  padding: var(--k-space-8);
+  border: var(--k-border-1) solid transparent;
+  outline: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.k-menu__item[data-highlighted] {
+  border-color: var(--k-brand);
+  background: var(--k-soft);
+}
+
+.k-menu__item[data-disabled] {
+  color: var(--k-muted);
+  cursor: not-allowed;
+}
+
+.k-segment[data-state='open'] {
+  background: var(--k-brand);
+  color: var(--k-onbrand);
+}
+
+.k-tooltip {
+  min-width: 0;
+}

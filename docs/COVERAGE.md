@@ -62,12 +62,12 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | AlertDialog | 15:2474 | ✅ | só fecha pelas ações; foco inicial em Cancelar |
 | Sheet | 15:2657 | ✅ | `SheetContent` (direita, altura total) |
 | Drawer | 15:2888 | ✅ | `DrawerContent` (base); sem gesto de arrasto |
-| DropdownMenu | 15:3086 | ⬜ | |
-| ContextMenu | 15:3261 | ⬜ | |
-| Menubar | 15:3416 | ⬜ | |
-| Popover | 15:3499 | ⬜ | |
-| HoverCard | 15:3530 | ⬜ | |
-| Tooltip | 15:3561 | ⬜ | |
+| DropdownMenu | 15:3086 | ✅ | teclado, realce, disabled |
+| ContextMenu | 15:3261 | ✅ | + controle visível recomendado |
+| Menubar | 15:3416 | ✅ | segmentos; setas entre menus |
+| Popover | 15:3499 | ✅ |  |
+| HoverCard | 15:3530 | ✅ | hover + foco por teclado + clique (Popover) |
+| Tooltip | 15:3561 | ✅ | hover + foco; Esc |
 | Command | 16:2847 | ⬜ | |
 | Combobox | 16:2988 | ⬜ | |
 | InputOTP | 16:3097 | ⬜ | |
@@ -115,3 +115,6 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 28. **Sidebar Selected:** o Figma troca o relevo do aro inteiro para Inset quando há um item selecionado. Como sempre há um item atual, a lib mantém o aro Raised e marca só o item (`soft` + borda `brand` + `aria-current`).
 29. **Catálogo:** a regra `landmark-unique` do axe está desligada no Storybook, porque cada story é renderizada uma vez por tema e isso duplica os landmarks. Num app com um único tema a regra se aplica normalmente.
 30. **Modais:** o Figma não desenha o fundo escurecido nem botão de fechar. A lib usa `ink` a 40% como fundo, e o fechamento é por Esc, clique fora ou ação explícita. O AlertDialog só fecha pelas ações. Sheet ancora à direita em altura total e Drawer na base (até 420 px), porque o Figma só mostra os painéis isolados, sem posição na tela. Os estados Form, Loading, Error e Success são composições (`status`, `Button loading`).
+31. **Menus:** o estado Closed do DropdownMenu no Figma mostra o título e “Abrir opções ▾” dentro da placa. A lib trata isso como o gatilho, que o consumidor monta com `Button`. O estado Selected é o item realçado (`data-highlighted`), e o Inset no aro inteiro do Selected não foi reproduzido, como na Sidebar.
+32. **HoverCard:** o Radix HoverCard não abre por clique nem por toque. Como o Figma pede “alternativa por clique e foco”, a lib implementa o HoverCard sobre o Popover: abre com hover do mouse, com foco por teclado e com clique.
+33. **Tooltip** tem título em Heading/M no Figma, o que é pesado para uma dica. A lib reproduz o desenho (`title` é opcional).
