@@ -158,3 +158,61 @@
   width: 100%;
   overflow: hidden;
 }
+
+/* Resizable (17:3470) — compartimentos sobre metal, ajustados pelo Slider. */
+.k-resizable__panes {
+  display: grid;
+  gap: var(--k-space-4);
+  padding: var(--k-space-4);
+  background: var(--k-metal);
+}
+
+.k-resizable__pane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+  padding: var(--k-space-12);
+  background: var(--k-paper);
+  overflow-wrap: anywhere;
+}
+
+.k-resizable__pane > * {
+  margin: 0;
+}
+
+/* Carousel (17:3561) — uma ficha por vez; controles em Label/Default. */
+.k-carousel__slide {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+}
+
+.k-carousel__slide > * {
+  margin: 0;
+}
+
+.k-carousel__controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--k-space-24);
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+  text-transform: uppercase;
+}
+
+.k-carousel__controls button {
+  all: unset;
+  cursor: pointer;
+}
+
+.k-carousel__controls button:focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: 2px;
+}
+
+.k-carousel__controls button:disabled {
+  color: var(--k-muted);
+  cursor: not-allowed;
+}

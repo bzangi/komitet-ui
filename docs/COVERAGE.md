@@ -15,7 +15,7 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 |---|---|---|
 | Pacote instalável em consumidor `moduleResolution: NodeNext` | ✅ | imports relativos com `.js`; validado com `npm pack` + consumidor limpo (tsc NodeNext + import em runtime) |
 | `Theme` → contexto para portais (overlays herdam o tema) | ✅ | testado no Dialog nos dois temas |
-| **Acesso ao Figma** | ⬜ | **Bloqueado em 2026-10-23:** limite do Figma MCP no plano Starter/seat View (20 chamadas/mês segundo a documentação). Os 11 conjuntos pendentes abaixo aguardam acesso para extrair estrutura e tokens. |
+| **Acesso ao Figma** | ✅ | Bloqueado em 2026-10-23 pelo limite do MCP no plano Starter; restabelecido em 2026-10-25, quando os 11 conjuntos restantes foram extraídos. |
 | Exemplo de composição (painel de operação) | ✅ | `Exemplos/Painel de operação`, nos dois temas, com teste de interação e baseline visual |
 | Decisão sobre texto de status (divergência 9) | ✅ | aprovado em 2026-10-23: escurecer só o texto (`--k-*-text`) |
 
@@ -81,8 +81,8 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Terminal | 16:4244 | ✅ | role=log; rolável por teclado |
 | Annunciator | 16:4299 | ✅ | Badge sobre placa; role=status |
 | Item | 17:3419 | ✅ | media/title/description/action |
-| Resizable | 17:3470 | ⬜ | |
-| Carousel | 17:3561 | ⬜ | |
+| Resizable | 17:3470 | ✅ | Slider controla a divisão (como no Figma) |
+| Carousel | 17:3561 | ✅ | manual; anterior/próximo; posição anunciada |
 | AspectRatio | 17:3644 | ✅ | CSS `aspect-ratio` |
 | DescriptionList | 24:3601 | ✅ | `DescriptionList` + `DescriptionItem` |
 
@@ -128,3 +128,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 39. **InputOTP:** o Figma mostra o encaixe vazio com “·”. A lib marca o encaixe ativo com a borda tracejada do foco e aceita só dígitos. Os estados Error e Disabled seguem o campo (`bad`, `soft`/`muted`).
 40. **Calendar:** o Figma mostra os dias passados em `soft`/`muted`, que a lib trata como indisponíveis (via `disabled`). O dia de hoje não tem marca no Figma e a lib não adiciona uma. O meio de um período não está desenhado: a lib usa `soft` + borda `brand`. A semana começa na segunda, como no Figma (o padrão pt-BR é domingo).
 41. **DatePicker/DateRange:** o ▾ do Figma vira o botão que abre o calendário. O texto aceita dd/mm/aaaa. A validação do período (fim ≥ início) fica com o consumidor, via `isValidRange` e a mensagem de erro do `Field`, com o texto do Figma.
+42. **Resizable:** o Figma mostra os compartimentos ajustados por um Slider (instância do Slider), não por uma alça de arrastar. A lib segue o desenho, e o Slider já é acessível por teclado. Não há arraste da divisória.
+43. **Carousel:** o Figma não mostra o estado nas pontas. A lib desabilita “Anterior” na primeira ficha e “Próximo” na última (sem voltar ao início), e anuncia a posição (“2 / 3”).

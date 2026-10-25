@@ -11,7 +11,7 @@ Regras de conversão:
 
 | Seção | Figma (nó) | React | Props / estados | Dependência |
 |---|---|---|---|---|
-| 01 | Avatar `10:7` | `Avatar` | `src`, `name` → iniciais; Empty = fallback | radix-ui Avatar |
+| 01 | Avatar `10:7` | `Avatar` | `name` → iniciais; sem nome = Empty | — |
 | 01 | Badge `10:54` | `Badge` | `tone` neutral/success/warning/error | — |
 | 01 | Spinner `10:141` | `Spinner` | `label`, role=status | — |
 | 01 | Skeleton `10:168` | `Skeleton` | decorativo (aria-hidden) | — |
@@ -57,20 +57,20 @@ Regras de conversão:
 | 09 | ContextMenu `15:3261` | `ContextMenu` | + controle visível equivalente | radix-ui ContextMenu |
 | 09 | Menubar `15:3416` | `Menubar` | — | radix-ui Menubar |
 | 09 | Popover `15:3499` | `Popover` | — | radix-ui Popover |
-| 09 | HoverCard `15:3530` | `HoverCard` | precisa de alternativa por clique/foco | radix-ui HoverCard + Popover |
+| 09 | HoverCard `15:3530` | `HoverCard` | hover + foco + clique | radix-ui Popover |
 | 09 | Tooltip `15:3561` | `Tooltip` | — | radix-ui Tooltip |
 | 10 | Command `16:2847` | `Command` | vazio explícito | cmdk |
-| 10 | Combobox `16:2988` | `Combobox` | — | cmdk + Popover |
+| 10 | Combobox `16:2988` | `Combobox` | combobox WAI-ARIA | radix-ui Popover |
 | 10 | InputOTP `16:3097` | `InputOTP` | 6 dígitos | input-otp |
 | 10 | Calendar `16:3364` | `Calendar` | — | react-day-picker |
-| 10 | DatePicker `16:3713` | `DatePicker` | — | react-day-picker + Popover |
+| 10 | DatePicker `16:3713` | `DatePicker` | dd/mm/aaaa | react-day-picker + radix-ui Popover |
 | 10 | DateRange `16:3812` | `DateRange` | fim ≥ início | react-day-picker |
 | 11 | Gauge `16:3896` | `Gauge` | role=meter; Low/High derivados de limiares | — (SVG) |
 | 11 | Readout `16:4161` | `Readout` | `error`; Low derivado | — |
 | 11 | Terminal `16:4244` | `Terminal` | role=log | — |
 | 11 | Annunciator `16:4299` | `Annunciator` | `tone` | — |
 | 12 | Item `17:3419` | `Item` | — | — |
-| 12 | Resizable `17:3470` | `Resizable` | — | react-resizable-panels |
-| 12 | Carousel `17:3561` | `Carousel` | scroll-snap; sem autoplay | — |
+| 12 | Resizable `17:3470` | `Resizable` | divisão por Slider (como no Figma) | — |
+| 12 | Carousel `17:3561` | `Carousel` | uma ficha por vez; sem autoplay | — |
 | 12 | AspectRatio `17:3644` | `AspectRatio` | CSS `aspect-ratio` | — |
 | 14 | DescriptionList `24:3601` | `DescriptionList` | dl/dt/dd | — |
