@@ -22,6 +22,9 @@ import * as Navegacao from './components/Navigation/Navigation.stories.js'
 import * as Slider from './components/Slider/Slider.stories.js'
 import * as Toggle from './components/Toggle/Toggle.stories.js'
 import * as Painel from './examples/Painel.stories.js'
+import * as Tabelas from './components/Table/Table.stories.js'
+import * as Datas from './components/Dates/Dates.stories.js'
+import * as Busca from './components/Search/Search.stories.js'
 import { Button as KButton, Checkbox as KCheckbox, Input as KInput, Switch as KSwitch, Theme } from './index.js'
 
 setProjectAnnotations(preview)
@@ -45,6 +48,9 @@ const stories = {
   'gauge': composeStories(Instrumentos).Mostradores,
   'readout': composeStories(Instrumentos).Visores,
   'painel-composicao': composeStories(Painel).Painel_,
+  'tabelas': composeStories(Tabelas).Tabelas,
+  'calendario': composeStories(Datas).Calendario,
+  'input-otp': composeStories(Busca).Codigo,
 }
 
 let root: ReturnType<typeof createRoot> | undefined
