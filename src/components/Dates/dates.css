@@ -1,0 +1,130 @@
+/* Calendar — Figma 16:3364. Classes `rdp-*` da react-day-picker estilizadas diretamente (sem o CSS padrão). */
+.k-calendar {
+  box-sizing: border-box;
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: calc(var(--k-space-4) - var(--k-border-1) * 2);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-3);
+  background: var(--k-metal);
+  box-shadow: var(--k-raised);
+  color: var(--k-ink);
+}
+
+.k-calendar .rdp-root {
+  box-sizing: border-box;
+  flex: 1;
+  padding: var(--k-space-16);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-surface);
+}
+
+.k-calendar .rdp-month {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--k-space-8);
+}
+
+.k-calendar .rdp-month_caption {
+  grid-column: 2;
+  text-align: center;
+  font: var(--k-text-heading-m);
+  text-transform: uppercase;
+}
+
+.k-calendar .rdp-button_previous { grid-column: 1; grid-row: 1; }
+.k-calendar .rdp-button_next { grid-column: 3; grid-row: 1; }
+
+.k-calendar :is(.rdp-button_previous, .rdp-button_next) {
+  all: unset;
+  padding: 0 var(--k-space-8);
+  font: var(--k-text-heading-m);
+  cursor: pointer;
+}
+
+.k-calendar :is(.rdp-button_previous, .rdp-button_next):focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+}
+
+.k-calendar .rdp-month_grid {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-block: calc(var(--k-space-8) * -1) calc(var(--k-space-8) * -1);
+  border-collapse: separate;
+  border-spacing: var(--k-space-4) var(--k-space-8);
+}
+
+.k-calendar .rdp-weekday {
+  padding: 0;
+  color: var(--k-muted);
+  font: var(--k-text-label-small);
+  letter-spacing: var(--k-tracking-label);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.k-calendar .rdp-day {
+  min-width: 36px;
+  height: 26px;
+  padding: 0;
+}
+
+.k-calendar .rdp-day_button {
+  all: unset;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 26px;
+  padding: var(--k-space-4);
+  border: var(--k-border-1) solid var(--k-line);
+  background: var(--k-surface);
+  color: var(--k-ink);
+  font: var(--k-text-label-small);
+  letter-spacing: var(--k-tracking-label);
+  cursor: pointer;
+}
+
+.k-calendar .rdp-day_button:focus-visible {
+  outline: var(--k-border-2) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-2) * -1);
+}
+
+.k-calendar .rdp-disabled .rdp-day_button {
+  background: var(--k-soft);
+  color: var(--k-muted);
+  cursor: not-allowed;
+}
+
+.k-calendar :is(.rdp-selected, .rdp-range_start, .rdp-range_end) .rdp-day_button {
+  background: var(--k-brand);
+  color: var(--k-onbrand);
+}
+
+/* Meio do período: não desenhado no Figma — usa o realce `soft` + `brand` dos itens ativos. */
+.k-calendar .rdp-range_middle .rdp-day_button {
+  border-color: var(--k-brand);
+  background: var(--k-soft);
+  color: var(--k-ink);
+}
+
+.k-calendar .rdp-hidden,
+.k-calendar .rdp-outside .rdp-day_button {
+  visibility: hidden;
+}
+
+/* DatePicker (16:3713) e DateRange (16:3812) */
+.k-date .k-input {
+  flex: 0 1 12ch;
+  min-width: 10ch;
+}
+
+.k-date .k-input-group__action {
+  margin-left: auto;
+}
+
+.k-date__popover {
+  z-index: 1002;
+}

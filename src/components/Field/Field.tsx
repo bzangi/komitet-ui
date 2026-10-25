@@ -4,12 +4,16 @@ import { cx } from '../../utils/cx.js'
 
 type FieldContextValue = {
   id: string
+  labelId: string
   hintId?: string
   invalid: boolean
   status?: 'error' | 'success'
 }
 
 const FieldContext = createContext<FieldContextValue | null>(null)
+
+/** Contexto do `Field` mais próximo (para controles compostos, como DateRange). */
+export const useField = () => useContext(FieldContext)
 
 /** Props que um controle de formulário herda do `Field` mais próximo. */
 export function useFieldControl<P extends { id?: string; 'aria-describedby'?: string; 'aria-invalid'?: ComponentProps<'input'>['aria-invalid'] }>(props: P) {
@@ -49,9 +53,9 @@ export function Field({ label, hideLabel, description, error, success, className
   const status = error ? 'error' : success ? 'success' : undefined
   const hintId = hint ? `${id}-hint` : undefined
   return (
-    <FieldContext.Provider value={{ id, hintId, invalid: !!error, status }}>
+    <FieldContext.Provider value={{ id, labelId: `${id}-label`, hintId, invalid: !!error, status }}>
       <div className={cx('k-field', className)} {...props}>
-        <Label htmlFor={id} className={hideLabel ? 'k-sr-only' : undefined}>
+        <Label id={`${id}-label`} htmlFor={id} className={hideLabel ? 'k-sr-only' : undefined}>
           {label}
         </Label>
         {children}

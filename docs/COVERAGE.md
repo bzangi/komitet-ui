@@ -73,9 +73,9 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Command | 16:2847 | ✅ | cmdk; lista oculta quando vazia |
 | Combobox | 16:2988 | ✅ | padrão combobox WAI-ARIA sobre Popover; filtra, setas, Enter, Esc |
 | InputOTP | 16:3097 | ✅ | input-otp; 6 dígitos, só números |
-| Calendar | 16:3364 | ⬜ | |
-| DatePicker | 16:3713 | ⬜ | |
-| DateRange | 16:3812 | ⬜ | |
+| Calendar | 16:3364 | ✅ | react-day-picker; semana a partir de segunda; teclado da grade |
+| DatePicker | 16:3713 | ✅ | dd/mm/aaaa digitado ou pelo calendário |
+| DateRange | 16:3812 | ✅ | dois campos + calendário de período; `isValidRange` |
 | Gauge | 16:3896 | ✅ | role=meter; agulha linear na escala ±120° |
 | Readout | 16:4161 | ✅ | zeros à esquerda; `null` = falha anunciada |
 | Terminal | 16:4244 | ✅ | role=log; rolável por teclado |
@@ -126,3 +126,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 37. **DataTable:** só a coluna ordenada mostra a seta (↑/↓), como no Figma. As colunas ordenáveis são botões no cabeçalho, sem indicador visual enquanto não estão ordenadas. Busca e ordenação são feitas no cliente; dados paginados no servidor devem ser filtrados antes de passar `rows`.
 38. **Combobox:** o Figma mostra o campo com ▾ e a lista aberta, mas não o realce da opção ativa. A lib usa o mesmo realce dos menus (`soft` + borda `brand`). O componente não usa o cmdk, porque o cmdk fixa `aria-expanded="true"` e o `id` do campo, o que quebraria o rótulo do `Field`.
 39. **InputOTP:** o Figma mostra o encaixe vazio com “·”. A lib marca o encaixe ativo com a borda tracejada do foco e aceita só dígitos. Os estados Error e Disabled seguem o campo (`bad`, `soft`/`muted`).
+40. **Calendar:** o Figma mostra os dias passados em `soft`/`muted`, que a lib trata como indisponíveis (via `disabled`). O dia de hoje não tem marca no Figma e a lib não adiciona uma. O meio de um período não está desenhado: a lib usa `soft` + borda `brand`. A semana começa na segunda, como no Figma (o padrão pt-BR é domingo).
+41. **DatePicker/DateRange:** o ▾ do Figma vira o botão que abre o calendário. O texto aceita dd/mm/aaaa. A validação do período (fim ≥ início) fica com o consumidor, via `isValidRange` e a mensagem de erro do `Field`, com o texto do Figma.
