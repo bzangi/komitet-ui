@@ -70,9 +70,9 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Popover | 15:3499 | ✅ |  |
 | HoverCard | 15:3530 | ✅ | hover + foco por teclado + clique (Popover) |
 | Tooltip | 15:3561 | ✅ | hover + foco; Esc |
-| Command | 16:2847 | ⬜ | |
-| Combobox | 16:2988 | ⬜ | |
-| InputOTP | 16:3097 | ⬜ | |
+| Command | 16:2847 | ✅ | cmdk; lista oculta quando vazia |
+| Combobox | 16:2988 | ✅ | padrão combobox WAI-ARIA sobre Popover; filtra, setas, Enter, Esc |
+| InputOTP | 16:3097 | ✅ | input-otp; 6 dígitos, só números |
 | Calendar | 16:3364 | ⬜ | |
 | DatePicker | 16:3713 | ⬜ | |
 | DateRange | 16:3812 | ⬜ | |
@@ -124,3 +124,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 35. **Readout:** o Figma não mostra unidade. A prop `unit` só é anunciada para leitores de tela; para quem enxerga, inclua a unidade no rótulo (por exemplo, “PRESSÃO · BAR”).
 36. **Pagination “Default”** destaca o “‹” em `brand`, e a “Second” destaca a página 1. A lib interpreta o segmento em `brand` como a página atual: anterior e próximo nunca ficam ativos e são desabilitados nas pontas. A janela com “…” acima de 7 páginas não está no Figma.
 37. **DataTable:** só a coluna ordenada mostra a seta (↑/↓), como no Figma. As colunas ordenáveis são botões no cabeçalho, sem indicador visual enquanto não estão ordenadas. Busca e ordenação são feitas no cliente; dados paginados no servidor devem ser filtrados antes de passar `rows`.
+38. **Combobox:** o Figma mostra o campo com ▾ e a lista aberta, mas não o realce da opção ativa. A lib usa o mesmo realce dos menus (`soft` + borda `brand`). O componente não usa o cmdk, porque o cmdk fixa `aria-expanded="true"` e o `id` do campo, o que quebraria o rótulo do `Field`.
+39. **InputOTP:** o Figma mostra o encaixe vazio com “·”. A lib marca o encaixe ativo com a borda tracejada do foco e aceita só dígitos. Os estados Error e Disabled seguem o campo (`bad`, `soft`/`muted`).

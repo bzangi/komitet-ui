@@ -1,0 +1,135 @@
+/* Command — Figma 16:2847 */
+.k-command {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 100%;
+  padding: calc(var(--k-space-4) - var(--k-border-1) * 2);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-3);
+  background: var(--k-metal);
+  box-shadow: var(--k-raised);
+  color: var(--k-ink);
+}
+
+.k-command__face {
+  box-sizing: border-box;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+  padding: var(--k-space-12);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-surface);
+  font: var(--k-text-body);
+}
+
+.k-command__search {
+  padding: var(--k-space-8);
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-paper);
+}
+
+.k-command__search:has(:focus-visible) {
+  border-style: dashed;
+  border-color: var(--k-ink);
+}
+
+.k-command__search input {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+}
+
+.k-command__search input::placeholder {
+  color: var(--k-muted);
+  opacity: 1;
+}
+
+.k-command [cmdk-list-sizer] {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+}
+
+.k-command .k-menu__item[data-selected='true'] {
+  border-color: var(--k-brand);
+  background: var(--k-soft);
+}
+
+.k-command__empty {
+  color: var(--k-muted);
+  font: var(--k-text-body);
+  list-style: none;
+}
+
+/* Combobox — Figma 16:2988: campo com ▾ e lista em moldura de metal. */
+.k-combobox__list {
+  box-sizing: border-box;
+  z-index: 1002;
+  width: var(--radix-popover-trigger-width);
+  max-height: min(320px, var(--radix-popover-content-available-height));
+  padding: var(--k-space-12);
+  overflow: auto;
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-surface);
+  color: var(--k-ink);
+  font: var(--k-text-body);
+}
+
+.k-combobox__list ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.k-combobox__list [aria-disabled] {
+  color: var(--k-muted);
+  cursor: not-allowed;
+}
+
+/* InputOTP — Figma 16:3097: seis encaixes com relevo interno. */
+.k-otp {
+  max-width: 100%;
+}
+
+.k-otp__slots {
+  display: flex;
+  gap: var(--k-space-8);
+}
+
+.k-otp__slot {
+  box-sizing: border-box;
+  display: grid;
+  flex: 1 1 43px;
+  min-width: 0;
+  max-width: 43px;
+  height: 38px;
+  place-items: center;
+  border: var(--k-border-2) solid var(--k-metal);
+  background: var(--k-surface);
+  box-shadow: var(--k-inset);
+  color: var(--k-ink);
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+}
+
+.k-otp__slot[data-active] {
+  border-style: dashed;
+  border-color: var(--k-ink);
+}
+
+.k-otp:has([aria-invalid='true']) .k-otp__slot {
+  border-color: var(--k-bad);
+}
+
+.k-otp:has(:disabled) .k-otp__slot {
+  background: var(--k-soft);
+  color: var(--k-muted);
+}
