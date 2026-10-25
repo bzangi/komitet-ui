@@ -1,0 +1,200 @@
+/* Table — Figma 13:2422 (Standard) · 13:2587 (Compact) · 13:2752 (Zebra); DataTable 13:2923 */
+.k-table {
+  --k-table-pad: var(--k-space-12);
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+  padding: calc(var(--k-space-4) - var(--k-border-1) * 2);
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-3);
+  background: var(--k-metal);
+  box-shadow: var(--k-raised);
+  color: var(--k-ink);
+}
+
+.k-table[data-density='compact'] {
+  --k-table-pad: var(--k-space-8);
+}
+
+/* Face única: ferramentas, tabela e rodapé separados por 8 px de `surface`. */
+.k-table__face {
+  display: flex;
+  flex-direction: column;
+  gap: var(--k-space-8);
+  min-width: 0;
+  border: var(--k-border-1) solid var(--k-line);
+  border-radius: var(--k-radius-2);
+  background: var(--k-surface);
+  overflow: hidden;
+}
+
+.k-table__face[data-error] {
+  border: var(--k-border-2) solid var(--k-bad);
+}
+
+.k-table__scroll {
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.k-table__scroll:focus-visible {
+  outline: var(--k-border-2) dashed var(--k-ink);
+  outline-offset: calc(var(--k-border-2) * -1);
+}
+
+.k-table table {
+  width: 100%;
+  /* Linhas separadas por 8 px, como o gap da face no Figma. */
+  margin-block: calc(var(--k-space-8) * -1);
+  border-collapse: separate;
+  border-spacing: 0 var(--k-space-8);
+}
+
+.k-table th {
+  padding: var(--k-space-12);
+  background: var(--k-soft);
+  font: var(--k-text-control);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.k-table td {
+  padding: var(--k-table-pad) var(--k-space-12);
+  font: var(--k-text-label-small);
+  letter-spacing: var(--k-tracking-label);
+  overflow-wrap: anywhere;
+}
+
+.k-table td:first-child,
+.k-datatable td.k-datatable__check + td {
+  font: var(--k-text-body-small);
+  letter-spacing: normal;
+}
+
+.k-table :is(th, td)[data-numeric] {
+  text-align: right;
+}
+
+.k-table td[data-tone='success'] { color: var(--k-good-text); }
+.k-table td[data-tone='warning'] { color: var(--k-warn-text); }
+.k-table td[data-tone='error'] { color: var(--k-bad-text); }
+
+.k-table[data-striped] tbody tr:nth-child(even) {
+  background: var(--k-soft);
+}
+
+/* Linha selecionada: `soft` + moldura `brand` de 2 px; o texto de status volta a `ink`. */
+.k-table tr[data-selected] {
+  background: var(--k-soft);
+}
+
+.k-table tr[data-selected] td {
+  box-shadow:
+    inset 0 2px 0 var(--k-brand),
+    inset 0 -2px 0 var(--k-brand);
+}
+
+.k-table tr[data-selected] td:first-child {
+  box-shadow:
+    inset 2px 2px 0 var(--k-brand),
+    inset 0 -2px 0 var(--k-brand);
+}
+
+.k-table tr[data-selected] td:last-child {
+  box-shadow:
+    inset -2px 2px 0 var(--k-brand),
+    inset 0 -2px 0 var(--k-brand);
+}
+
+.k-table :is(tr[data-selected], [data-striped] tbody tr:nth-child(even)) td[data-tone] {
+  color: var(--k-ink);
+}
+
+/* DataTable */
+.k-datatable__tools {
+  padding: var(--k-space-12);
+  background: var(--k-paper);
+}
+
+.k-datatable__search {
+  all: unset;
+  box-sizing: border-box;
+  width: 100%;
+  color: var(--k-ink);
+  font: var(--k-text-label);
+  letter-spacing: var(--k-tracking-label);
+}
+
+.k-datatable__search::placeholder {
+  color: var(--k-muted);
+  opacity: 1;
+}
+
+.k-datatable__tools:has(:focus-visible) {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: -4px;
+}
+
+.k-datatable__check {
+  width: 1%;
+  padding-block: var(--k-space-4) !important;
+}
+
+.k-datatable__check .k-check {
+  padding: var(--k-space-4);
+}
+
+.k-datatable__sort {
+  all: unset;
+  cursor: pointer;
+}
+
+.k-datatable__sort:focus-visible {
+  outline: var(--k-border-1) dashed var(--k-ink);
+  outline-offset: 2px;
+}
+
+.k-datatable__state {
+  padding: var(--k-space-20) !important;
+  font: var(--k-text-body) !important;
+}
+
+.k-datatable__state > * + * {
+  margin-top: var(--k-space-12);
+}
+
+.k-datatable__state p {
+  margin: 0;
+}
+
+.k-datatable__footer {
+  padding: var(--k-space-12);
+  background: var(--k-soft);
+  color: var(--k-muted);
+  font: var(--k-text-label-small);
+  letter-spacing: var(--k-tracking-label);
+}
+
+/* Pagination — Figma 13:3436 */
+.k-pagination ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.k-pagination .k-segment {
+  min-width: 40px;
+}
+
+.k-pagination .k-segment:disabled {
+  color: var(--k-muted);
+}
+
+.k-pagination__gap {
+  display: inline-block;
+  padding: var(--k-space-8);
+  font: var(--k-text-control);
+}

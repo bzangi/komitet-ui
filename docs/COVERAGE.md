@@ -49,9 +49,9 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | PasswordInput | 12:1396 | ✅ | revelar com aria-pressed |
 | InputGroup | 12:1493 | ✅ | `InputGroup` + `InputAddon` |
 | Card | 13:639 · 13:1080 · 13:1549 · 13:2018 | ✅ | paper/plate/compact; Module = Plate. |
-| Table | 13:2422 · 13:2587 · 13:2752 | ⬜ | |
-| DataTable | 13:2923 | ⬜ | |
-| Pagination | 13:3436 | ⬜ | |
+| Table | 13:2422 · 13:2587 · 13:2752 | ✅ | `density`, `striped`, linha `selected`; legenda acessível oculta |
+| DataTable | 13:2923 | ✅ | busca, ordenação (aria-sort), seleção com parcial, loading/empty/error |
+| Pagination | 13:3436 | ✅ | aria-current; janela com reticências acima de 7 páginas |
 | Tabs | 14:2021 | ✅ | setas; segmentos |
 | Breadcrumb | 14:2104 | ✅ | nav + aria-current |
 | Accordion | 14:2129 | ✅ | + / −; aria-expanded |
@@ -122,3 +122,5 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 33. **Tooltip** tem título em Heading/M no Figma, o que é pesado para uma dica. A lib reproduz o desenho (`title` é opcional).
 34. **Agulha do Gauge:** no Figma os ângulos são aproximados (24% a −35°, 64% a +12°, 88% a +55°) e não batem com as marcas da escala, que vão de −120° a +120°. A lib posiciona a agulha linearmente na escala, para que a leitura seja exata. Low, Default e High só mudam a agulha, por isso derivam do valor.
 35. **Readout:** o Figma não mostra unidade. A prop `unit` só é anunciada para leitores de tela; para quem enxerga, inclua a unidade no rótulo (por exemplo, “PRESSÃO · BAR”).
+36. **Pagination “Default”** destaca o “‹” em `brand`, e a “Second” destaca a página 1. A lib interpreta o segmento em `brand` como a página atual: anterior e próximo nunca ficam ativos e são desabilitados nas pontas. A janela com “…” acima de 7 páginas não está no Figma.
+37. **DataTable:** só a coluna ordenada mostra a seta (↑/↓), como no Figma. As colunas ordenáveis são botões no cabeçalho, sem indicador visual enquanto não estão ordenadas. Busca e ordenação são feitas no cliente; dados paginados no servidor devem ser filtrados antes de passar `rows`.

@@ -72,3 +72,5 @@ export {
 export type { HoverCardProps, TooltipProps } from './components/Overlay/Menus.js'
 export { Annunciator, Gauge, Readout, Terminal } from './components/Instruments/Instruments.js'
 export type { AnnunciatorProps, GaugeProps, ReadoutProps, TerminalProps } from './components/Instruments/Instruments.js'
+export { DataTable, Pagination, Table, TableBody, TableCell, TableHead, TableHeader, TableRow, pageItems } from './components/Table/Table.js'
+export type { DataTableColumn, DataTableProps, PaginationProps, TableCellProps, TableProps } from './components/Table/Table.js'
