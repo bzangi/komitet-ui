@@ -123,6 +123,7 @@ export const Registros: Story = {
 
 export const TesteJanelaDePaginas: Story = {
   name: 'Teste: janela de páginas',
+  tags: ['!autodocs'],
   render: () => <Pagination page={6} pageCount={12} onPageChange={() => {}} />,
   play: async () => {
     await expect(pageItems(1, 5)).toEqual([1, 2, 3, 4, 5])

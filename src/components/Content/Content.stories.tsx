@@ -9,10 +9,11 @@ import { AspectRatio, Carousel, DescriptionItem, DescriptionList, Item, Resizabl
 const meta = {
   title: 'Estrutura/Conteúdo',
   component: Item,
-  subcomponents: { DescriptionList, DescriptionItem, AspectRatio, Resizable, Carousel },
+  subcomponents: { DescriptionItem, AspectRatio, Resizable, Carousel },
   parameters: figma(
     { DescriptionList: '24:3601', Item: '17:3419', AspectRatio: '17:3644', Resizable: '17:3470', Carousel: '17:3561' },
     'DescriptionList, Item e AspectRatio aparecem no Figma sobre uma placa (aqui, `Card material="plate"`). Resizable é ajustado por um Slider, como no Figma. Carousel nunca avança sozinho.',
+    'DescriptionList (`<dl>`).',
   ),
   args: { title: 'Manual de referência' },
 } satisfies Meta<typeof Item>

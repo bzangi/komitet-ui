@@ -43,6 +43,7 @@ export const RotuloDoEstado: Story = {
 
 export const TesteInteracao: Story = {
   name: 'Teste: clique, teclado e bloqueio',
+  tags: ['!autodocs'],
   render: () => (
     <div style={col}>
       <Switch>Alimentação</Switch>

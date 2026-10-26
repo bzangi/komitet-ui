@@ -6,10 +6,11 @@ import { ButtonGroup, ButtonGroupItem, Toggle, ToggleGroup, ToggleGroupItem } fr
 const meta = {
   title: 'Ações/Toggle e grupos',
   component: Toggle,
-  subcomponents: { ButtonGroup, ButtonGroupItem, ToggleGroup, ToggleGroupItem },
+  subcomponents: { ButtonGroupItem },
   parameters: figma(
     { Toggle: '11:578', SignalButton: '11:519', ButtonGroup: '11:635', ToggleGroup: '11:702' },
     'SignalButton = `<Toggle variant="signal">`. Em ButtonGroup, o item destacado (`primary`) é ênfase de comando; em ToggleGroup, é seleção.',
+    'ButtonGroup (`<div role="group">`), ToggleGroup e ToggleGroupItem (Radix ToggleGroup: `type`, `value`, `onValueChange`).',
   ),
   args: { children: 'Fixar painel' },
 } satisfies Meta<typeof Toggle>
@@ -59,6 +60,7 @@ export const Grupos: Story = {
 
 export const TesteToggle: Story = {
   name: 'Teste: Toggle mantém o rótulo e alterna aria-pressed',
+  tags: ['!autodocs'],
   args: { onPressedChange: fn() },
   play: async ({ args, canvasElement }) => {
     const [canvas] = eachTheme(canvasElement)
@@ -75,6 +77,7 @@ export const TesteToggle: Story = {
 
 export const TesteToggleGroup: Story = {
   name: 'Teste: ToggleGroup com setas',
+  tags: ['!autodocs'],
   render: Grupos.render,
   play: async ({ canvasElement }) => {
     const [canvas] = eachTheme(canvasElement)

@@ -186,6 +186,7 @@ export const Laterais: Story = {
 
 /** Aberto para revisão visual e verificação de acessibilidade da camada (use a barra para ver um tema por vez). */
 export const Aberto: Story = {
+  tags: ['!autodocs'],
   render: () => (
     <AlertDialog defaultOpen>
       <AlertDialogContent

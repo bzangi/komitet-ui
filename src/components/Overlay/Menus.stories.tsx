@@ -26,10 +26,11 @@ import {
 const meta = {
   title: 'Menus/Menus e fichas',
   component: DropdownMenuContent,
-  subcomponents: { DropdownMenuItem, ContextMenuContent, MenubarContent, PopoverContent, HoverCard, Tooltip },
+  subcomponents: { ContextMenuContent, MenubarContent, PopoverContent, HoverCard, Tooltip },
   parameters: figma(
     { DropdownMenu: '15:3086', ContextMenu: '15:3261', Menubar: '15:3416', Popover: '15:3499', HoverCard: '15:3530', Tooltip: '15:3561' },
     'O estado Selected dos menus é o item realçado (teclado ou ponteiro). ContextMenu deve ter as mesmas ações num controle visível. HoverCard abre com hover, foco por teclado e clique (alternativa pedida no Figma).',
+    'DropdownMenuItem, ContextMenuItem e MenubarItem (Radix: `onSelect`, `disabled`).',
   ),
 } satisfies Meta<typeof DropdownMenuContent>
 export default meta
@@ -163,6 +164,7 @@ export const Fichas: Story = {
 
 /** Aberto para revisão visual e checagem de acessibilidade do painel (use a barra para ver um tema por vez). */
 export const Aberto: Story = {
+  tags: ['!autodocs'],
   render: () => (
     <div style={{ height: 320 }}>
       <DropdownMenu defaultOpen modal={false}>
@@ -182,6 +184,7 @@ export const Aberto: Story = {
 /** Termina com as fichas abertas para o axe verificar a camada (nome do `dialog`). */
 export const FichasAbertas: Story = {
   name: 'Teste: Popover aberto (a11y)',
+  tags: ['!autodocs'],
   render: () => (
     <div style={{ ...row, height: 200, alignItems: 'flex-start' }}>
       <Popover>
@@ -201,6 +204,7 @@ export const FichasAbertas: Story = {
 
 export const HoverCardAberto: Story = {
   name: 'Teste: HoverCard aberto por clique (a11y)',
+  tags: ['!autodocs'],
   render: () => (
     <div style={{ height: 160 }}>
       <HoverCard title="Ana Morais" content="Responsável pela operação e manutenção.">

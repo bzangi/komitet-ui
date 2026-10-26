@@ -5,13 +5,14 @@ import { Accordion, AccordionItem, Breadcrumb, Collapsible, Sidebar, SidebarItem
 
 const meta = {
   title: 'Navegação/Navegação',
-  component: Tabs,
-  subcomponents: { TabsList, TabsTrigger, TabsContent, Breadcrumb, Accordion, AccordionItem, Collapsible, Sidebar, SidebarItem },
+  component: Sidebar,
+  subcomponents: { SidebarItem, Breadcrumb, AccordionItem, Collapsible },
   parameters: figma(
     { Tabs: '14:2021', Breadcrumb: '14:2104', Accordion: '14:2129', Collapsible: '14:2178', Sidebar: '14:2227' },
     'Default/Second nas Tabs é a aba ativa. Accordion e Collapsible têm o mesmo desenho; Accordion agrupa seções, Collapsible é uma seção isolada.',
+    'Tabs, TabsList, TabsTrigger e TabsContent (Radix Tabs: `value`, `defaultValue`, `onValueChange`); Accordion (Radix Accordion.Root: `type`, `collapsible`, `defaultValue`).',
   ),
-} satisfies Meta<typeof Tabs>
+} satisfies Meta<typeof Sidebar>
 export default meta
 type Story = StoryObj<typeof meta>
 

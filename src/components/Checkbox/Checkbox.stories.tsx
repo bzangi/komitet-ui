@@ -65,6 +65,7 @@ export const GrupoComParcial: Story = {
 
 export const TesteInteracao: Story = {
   name: 'Teste: clique no rótulo, teclado e bloqueio',
+  tags: ['!autodocs'],
   render: () => (
     <div style={col}>
       <Checkbox>Selecionar opção</Checkbox>

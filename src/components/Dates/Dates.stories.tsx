@@ -7,13 +7,14 @@ import { Calendar, DatePicker, DateRange, isValidRange, parseDate, type DateRang
 
 const meta = {
   title: 'Busca e datas/Calendário e datas',
-  component: Calendar,
-  subcomponents: { DatePicker, DateRange },
+  component: DatePicker,
+  subcomponents: { DateRange },
   parameters: figma(
     { Calendar: '16:3364', DatePicker: '16:3713', DateRange: '16:3812' },
     'Calendário com react-day-picker: setas, PageUp/PageDown e Home/End navegam pela grade. Dias indisponíveis em `soft`/`muted`; semana começa na segunda, como no Figma. Datas digitadas em dd/mm/aaaa.',
+    'Calendar (react-day-picker: `mode`, `selected`, `onSelect`, `disabled`, `defaultMonth`).',
   ),
-} satisfies Meta<typeof Calendar>
+} satisfies Meta<typeof DatePicker>
 export default meta
 type Story = StoryObj<typeof meta>
 
@@ -82,6 +83,7 @@ export const Datas: Story = {
 
 export const TesteParse: Story = {
   name: 'Teste: leitura de datas',
+  tags: ['!autodocs'],
   render: () => <p>Funções puras: parseDate e isValidRange.</p>,
   play: async () => {
     await expect(parseDate('24/10/2026')?.getDate()).toBe(24)
@@ -94,6 +96,7 @@ export const TesteParse: Story = {
 
 export const CalendarioAberto: Story = {
   name: 'Teste: DatePicker aberto (a11y)',
+  tags: ['!autodocs'],
   render: () => (
     <div style={{ maxWidth: 360, height: 420 }}>
       <Field label="Próxima inspeção">

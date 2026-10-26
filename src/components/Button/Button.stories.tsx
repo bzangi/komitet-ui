@@ -101,6 +101,7 @@ export const ComoLink: Story = {
 
 export const Interacao: Story = {
   name: 'Teste: clique e teclado',
+  tags: ['!autodocs'],
   play: async ({ args, canvasElement }) => {
     const [canvas] = eachTheme(canvasElement)
     const button = canvas!.getByRole('button', { name: 'Confirmar' })
@@ -115,6 +116,7 @@ export const Interacao: Story = {
 
 export const TesteBloqueado: Story = {
   name: 'Teste: desabilitado e aguardando',
+  tags: ['!autodocs'],
   render: args => (
     <div style={row}>
       <Button {...args} disabled>

@@ -33,40 +33,44 @@ function Frame({ title, description, actions, status, children, parts, alert }: 
 
 export type DialogContentProps = Omit<ComponentProps<typeof DialogPrimitive.Content>, 'title'> & FrameProps
 
-function content(placement: 'center' | 'right' | 'bottom') {
-  return function Content({ title, description, actions, status, children, className, ...props }: DialogContentProps) {
-    return (
-      <DialogPrimitive.Portal>
-        <ThemeScope>
-          <DialogPrimitive.Overlay className="k-modal__overlay" />
-          <DialogPrimitive.Content
-            className={cx('k-modal', className)}
-            data-placement={placement}
-            // Sem descrição, desliga o aviso do Radix e não aponta para um id inexistente.
-            {...(description ? {} : { 'aria-describedby': undefined })}
-            {...props}
-          >
-            <Frame title={title} description={description} actions={actions} status={status} parts={DialogPrimitive}>
-              {children}
-            </Frame>
-          </DialogPrimitive.Content>
-        </ThemeScope>
-      </DialogPrimitive.Portal>
-    )
-  }
+function ModalContent({ placement, title, description, actions, status, children, className, ...props }: DialogContentProps & { placement: 'center' | 'right' | 'bottom' }) {
+  return (
+    <DialogPrimitive.Portal>
+      <ThemeScope>
+        <DialogPrimitive.Overlay className="k-modal__overlay" />
+        <DialogPrimitive.Content
+          className={cx('k-modal', className)}
+          data-placement={placement}
+          // Sem descrição, desliga o aviso do Radix e não aponta para um id inexistente.
+          {...(description ? {} : { 'aria-describedby': undefined })}
+          {...props}
+        >
+          <Frame title={title} description={description} actions={actions} status={status} parts={DialogPrimitive}>
+            {children}
+          </Frame>
+        </DialogPrimitive.Content>
+      </ThemeScope>
+    </DialogPrimitive.Portal>
+  )
 }
 
 /** Camada para decisão ou edição curta. Figma 15:2163. */
 export const Dialog = DialogPrimitive.Root
 export const DialogTrigger = DialogPrimitive.Trigger
 export const DialogClose = DialogPrimitive.Close
-export const DialogContent = content('center')
+export function DialogContent(props: DialogContentProps) {
+  return <ModalContent placement="center" {...props} />
+}
 
 /** Compartimento lateral para detalhes e ajustes. Figma 15:2657. Use com `Dialog` + `DialogTrigger`. */
-export const SheetContent = content('right')
+export function SheetContent(props: DialogContentProps) {
+  return <ModalContent placement="right" {...props} />
+}
 
 /** Gaveta de comandos presa à base da tela. Figma 15:2888. Use com `Dialog` + `DialogTrigger`. */
-export const DrawerContent = content('bottom')
+export function DrawerContent(props: DialogContentProps) {
+  return <ModalContent placement="bottom" {...props} />
+}
 
 /** Confirmação de ação destrutiva: só fecha pelas ações. Figma 15:2474. */
 export const AlertDialog = AlertPrimitive.Root

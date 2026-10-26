@@ -6,10 +6,10 @@ import { Input } from './Input.js'
 
 const meta = {
   title: 'Formulários/Input',
-  component: Input,
-  subcomponents: { Field },
-  parameters: figma({ Input: '12:251', Field: '18:3699', Label: '12:1584' }),
-} satisfies Meta<typeof Input>
+  component: Field,
+  args: { label: 'Identificação', children: <Input placeholder="Nome da estação" /> },
+  parameters: figma({ Input: '12:251', Field: '18:3699', Label: '12:1584' }, '', 'Input (`<input>`); rótulo, mensagem e estado vêm do Field.'),
+} satisfies Meta<typeof Field>
 export default meta
 type Story = StoryObj<typeof meta>
 
@@ -59,6 +59,7 @@ export const TextoLongo: Story = {
 
 export const TesteRotuloEMensagem: Story = {
   name: 'Teste: rótulo, mensagem e digitação',
+  tags: ['!autodocs'],
   render: () => (
     <Field label="Identificação" error="Use pelo menos 4 caracteres.">
       <Input defaultValue="12" />
@@ -77,6 +78,7 @@ export const TesteRotuloEMensagem: Story = {
 
 export const TesteSomenteLeitura: Story = {
   name: 'Teste: somente leitura e desabilitado',
+  tags: ['!autodocs'],
   render: () => (
     <>
       <Field label="Código">

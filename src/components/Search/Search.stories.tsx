@@ -8,10 +8,11 @@ import { Combobox, Command, CommandItem, InputOTP } from './Search.js'
 const meta = {
   title: 'Busca e datas/Command, Combobox e InputOTP',
   component: Command,
-  subcomponents: { CommandItem, Combobox, InputOTP },
+  subcomponents: { Combobox, InputOTP },
   parameters: figma(
     { Command: '16:2847', Combobox: '16:2988', InputOTP: '16:3097' },
     'Command usa cmdk. Combobox segue o padrão combobox da WAI-ARIA sobre o Popover do Radix: digite para filtrar, setas para navegar, Enter para escolher, Esc para fechar.',
+    'CommandItem (cmdk: `onSelect`, `value`, `disabled`).',
   ),
 } satisfies Meta<typeof Command>
 export default meta
@@ -110,6 +111,7 @@ export const Codigo: Story = {
 
 export const ComboboxAberto: Story = {
   name: 'Teste: Combobox aberto (a11y)',
+  tags: ['!autodocs'],
   render: () => (
     <div style={{ maxWidth: 300, height: 220 }}>
       <Field label="Unidade de operação">

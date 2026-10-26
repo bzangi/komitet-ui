@@ -5,10 +5,10 @@ import { RadioGroup, RadioGroupItem } from './Radio.js'
 
 const meta = {
   title: 'Formulários/RadioGroup',
-  component: RadioGroup,
-  subcomponents: { RadioGroupItem },
-  parameters: figma({ RadioGroup: '12:813' }),
-} satisfies Meta<typeof RadioGroup>
+  component: RadioGroupItem,
+  args: { value: 'norte', children: 'Setor norte' },
+  parameters: figma({ RadioGroup: '12:813' }, '', 'RadioGroup (Radix RadioGroup.Root: `value`, `defaultValue`, `onValueChange`, `disabled`).'),
+} satisfies Meta<typeof RadioGroupItem>
 export default meta
 type Story = StoryObj<typeof meta>
 

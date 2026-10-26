@@ -23,6 +23,7 @@ export const Estados: Story = {
 
 export const TesteTeclado: Story = {
   name: 'Teste: teclado e valor anunciado',
+  tags: ['!autodocs'],
   play: async ({ canvasElement }) => {
     for (const canvas of eachTheme(canvasElement)) {
       const thumb = canvas.getByRole('slider', { name: 'Nível de operação' })
