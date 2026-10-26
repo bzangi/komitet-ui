@@ -22,6 +22,7 @@ import {
 const meta = {
   title: 'Modais/Dialog, Sheet e Drawer',
   component: DialogContent,
+  subcomponents: { AlertDialogContent, SheetContent, DrawerContent },
   parameters: figma(
     { Dialog: '15:2163', AlertDialog: '15:2474', Sheet: '15:2657', Drawer: '15:2888' },
     'O Figma não desenha fundo nem botão de fechar: o fundo usa `ink` a 40% e o fechamento é por Esc, clique fora ou ação explícita (AlertDialog só fecha pelas ações). Form/Loading/Error/Success são composições com `status` e `Button loading`.',

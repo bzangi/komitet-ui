@@ -8,6 +8,7 @@ import { Combobox, Command, CommandItem, InputOTP } from './Search.js'
 const meta = {
   title: 'Busca e datas/Command, Combobox e InputOTP',
   component: Command,
+  subcomponents: { CommandItem, Combobox, InputOTP },
   parameters: figma(
     { Command: '16:2847', Combobox: '16:2988', InputOTP: '16:3097' },
     'Command usa cmdk. Combobox segue o padrão combobox da WAI-ARIA sobre o Popover do Radix: digite para filtrar, setas para navegar, Enter para escolher, Esc para fechar.',

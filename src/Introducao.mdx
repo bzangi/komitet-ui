@@ -1,0 +1,95 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introdução" />
+
+# Komitet UI
+
+Biblioteca React de componentes analógicos — painéis, instrumentos, papel e placas — com dois temas:
+
+- **Construtivista** — papel ocre, latão, tinta vermelha e texto sépia.
+- **Industrial** — chapa esmaltada verde, metal, oliva e âmbar.
+
+Referência visual: [Figma Komitet](https://www.figma.com/design/efiIkmlCZ1DyEoYhc6zvZr). Cada página de componente traz os links para os nós correspondentes.
+
+## Instalação
+
+```bash
+npm install komitet-ui
+```
+
+Requer React 19. O CSS vem pronto e não depende de Tailwind nem de configuração do bundler:
+
+```tsx
+import 'komitet-ui/styles.css'
+```
+
+### Fontes
+
+A biblioteca não embute fontes. Carregue as quatro famílias (todas com licença livre, no Google Fonts):
+
+```bash
+npm install @fontsource/oswald @fontsource/pt-sans @fontsource/courier-prime @fontsource/share-tech-mono
+```
+
+```tsx
+import '@fontsource/oswald/500.css'
+import '@fontsource/oswald/700.css'
+import '@fontsource/pt-sans/400.css'
+import '@fontsource/pt-sans/700.css'
+import '@fontsource/courier-prime/700.css'
+import '@fontsource/share-tech-mono/400.css'
+```
+
+## Temas
+
+Construtivista é o padrão. `<Theme>` aplica um material a qualquer parte da tela. Os temas podem ser aninhados ou exibidos lado a lado, e modais, menus e popovers herdam o tema de onde foram abertos.
+
+```tsx
+import { Theme, Button } from 'komitet-ui'
+
+<Theme theme="industrial">
+  <Button>Confirmar</Button>
+</Theme>
+```
+
+Neste catálogo, use o botão de pincel na barra superior para alternar entre **Lado a lado**, **Construtivista** e **Industrial**.
+
+## Tokens
+
+Todas as cores, medidas e estilos de texto são variáveis CSS com o prefixo `--k-`, extraídas do Figma. Veja a página **Fundamentos** para as paletas, a tipografia e os relevos.
+
+| Grupo | Exemplos |
+|---|---|
+| Cores semânticas (mudam com o tema) | `--k-paper` `--k-surface` `--k-soft` `--k-ink` `--k-muted` `--k-line` `--k-metal` `--k-brand` `--k-onbrand` `--k-good` `--k-warn` `--k-bad` |
+| Texto de status com contraste AA | `--k-good-text` `--k-warn-text` `--k-bad-text` |
+| Medidas | `--k-space-*` `--k-radius-*` `--k-border-*` `--k-control-32/42/52` |
+| Tipografia | `--k-text-display-xl` … `--k-text-readout` |
+| Relevo | `--k-raised` `--k-inset` |
+
+## Uso
+
+```tsx
+import { Button, Field, Input } from 'komitet-ui'
+
+<Field label="Identificação" error={erro}>
+  <Input value={valor} onChange={e => setValor(e.target.value)} />
+</Field>
+<Button loading={salvando}>Salvar</Button>
+```
+
+- Os componentes aceitam os atributos HTML do elemento raiz, `className` e `ref`.
+- Estados podem ser controlados (`checked` + `onCheckedChange`, `value` + `onChange`) ou não controlados (`defaultChecked`, `defaultValue`).
+- Controles dentro de `Field` recebem rótulo, mensagem e estado de erro automaticamente.
+- `asChild` (Button, Card, SidebarItem) aplica o material a outro elemento, como o `Link` do seu router.
+
+## Acessibilidade
+
+- Todas as stories passam por verificação automática (axe) nos dois temas.
+- Foco visível tracejado em todos os controles, como no Figma.
+- Status nunca dependem só da cor: há sempre texto, forma, borda ou posição.
+- Animações param com a preferência de movimento reduzido do sistema.
+- Instrumentos expõem valor e limites a leitores de tela (`role="meter"`, textos alternativos).
+
+## Divergências em relação ao Figma
+
+As decisões em que a implementação difere do Figma, ou interpreta algo que ele não define, estão listadas em `docs/COVERAGE.md` no repositório.

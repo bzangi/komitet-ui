@@ -7,6 +7,7 @@ import { Alert, Empty, Toaster, toast } from './Feedback.js'
 const meta = {
   title: 'Feedback/Alert, Toast e Empty',
   component: Alert,
+  subcomponents: { Empty, Toaster },
   parameters: figma(
     { Alert: '14:2337', Toast: '14:2410', Empty: '14:2461' },
     'A cor da moldura reforça o tom; o título precisa nomear a situação. Toast não tem botão de fechar no Figma: some sozinho (pausa com hover/foco), com Esc (F8 leva o foco à área de notificações) ou arrastando.',

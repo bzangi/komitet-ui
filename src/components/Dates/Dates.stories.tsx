@@ -8,6 +8,7 @@ import { Calendar, DatePicker, DateRange, isValidRange, parseDate, type DateRang
 const meta = {
   title: 'Busca e datas/Calendário e datas',
   component: Calendar,
+  subcomponents: { DatePicker, DateRange },
   parameters: figma(
     { Calendar: '16:3364', DatePicker: '16:3713', DateRange: '16:3812' },
     'Calendário com react-day-picker: setas, PageUp/PageDown e Home/End navegam pela grade. Dias indisponíveis em `soft`/`muted`; semana começa na segunda, como no Figma. Datas digitadas em dd/mm/aaaa.',

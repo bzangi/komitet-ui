@@ -7,6 +7,7 @@ import { IconButton } from './IconButton.js'
 const meta = {
   title: 'Ações/Button',
   component: Button,
+  subcomponents: { IconButton },
   parameters: figma({ 'Button/Primary': '11:89', 'Button/Secondary': '11:198', 'Button/Destructive': '11:307', 'Button/Quiet': '11:416', 'Button/Size': '18:3525', IconButton: '18:3588' }),
   args: { children: 'Confirmar', onClick: fn() },
 } satisfies Meta<typeof Button>

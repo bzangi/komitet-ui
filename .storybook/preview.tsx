@@ -29,14 +29,15 @@ const preview: Preview = {
   initialGlobals: { theme: 'both' },
   parameters: {
     layout: 'fullscreen',
+    options: { storySort: { order: ['Introdução', 'Fundamentos', 'Elementos básicos', 'Ações', 'Formulários', 'Cards', 'Tabelas', 'Navegação', 'Feedback', 'Modais', 'Menus', 'Busca e datas', 'Instrumentos', 'Estrutura', 'Exemplos'] } },
     // landmark-unique desligada: o catálogo duplica cada story (um tema por coluna), o que duplica landmarks.
     a11y: { test: 'error', config: { rules: [{ id: 'landmark-unique', enabled: false }] } },
   },
   decorators: [
-    (Story, { globals }) => {
+    (Story, { globals, viewMode }) => {
       const shown = globals.theme === 'both' ? themes : [globals.theme as ThemeName]
       return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', minHeight: '100vh' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', minHeight: viewMode === 'docs' ? undefined : '100vh' }}>
           {shown.map(t => (
             <Theme key={t} theme={t} style={{ flex: '1 1 420px', padding: 24, minWidth: 0 }}>
               <Story />

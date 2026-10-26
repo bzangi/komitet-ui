@@ -7,6 +7,7 @@ import { FileInput, InputAddon, InputGroup, PasswordInput, Select, Textarea, Inp
 const meta = {
   title: 'Formulários/Campos',
   component: Textarea,
+  subcomponents: { Select, PasswordInput, InputGroup, InputAddon, FileInput },
   parameters: figma(
     { Textarea: '12:422', Select: '12:567', SearchInput: '12:1299', PasswordInput: '12:1396', InputGroup: '12:1493', FileInput: '12:1220' },
     'SearchInput = `<Input type="search">`. Select é o `<select>` nativo: o Figma não desenha a lista aberta.',

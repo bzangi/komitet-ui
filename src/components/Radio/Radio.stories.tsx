@@ -6,6 +6,7 @@ import { RadioGroup, RadioGroupItem } from './Radio.js'
 const meta = {
   title: 'Formulários/RadioGroup',
   component: RadioGroup,
+  subcomponents: { RadioGroupItem },
   parameters: figma({ RadioGroup: '12:813' }),
 } satisfies Meta<typeof RadioGroup>
 export default meta

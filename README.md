@@ -100,6 +100,7 @@ Convenções:
 
 ## Exemplos
 
+- `Introdução` no Storybook: instalação, fontes, temas, tokens e convenções.
 - `Exemplos/Painel de operação` no Storybook: índice, trilha, abas, instrumentos ligados a controles, formulário com validação, Dialog de confirmação e Toast, nos dois temas.
 - Cada família tem stories de estados, de texto longo/largura estreita e de composição.
 

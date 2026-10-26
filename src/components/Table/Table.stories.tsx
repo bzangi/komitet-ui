@@ -8,6 +8,7 @@ import { DataTable, Pagination, Table, TableBody, TableCell, TableHead, TableHea
 const meta = {
   title: 'Tabelas/Tabelas e registros',
   component: Table,
+  subcomponents: { TableRow, TableHead, TableCell, DataTable, Pagination },
   parameters: figma(
     { 'Table/Standard': '13:2422', 'Table/Compact': '13:2587', 'Table/Zebra': '13:2752', DataTable: '13:2923', Pagination: '13:3436' },
     'Selected destaca a linha (`soft` + moldura `brand`). Em linhas destacadas o texto de status volta a `ink`, como no Figma. Na Pagination, o segmento em `brand` é a página atual.',

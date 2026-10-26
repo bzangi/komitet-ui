@@ -26,6 +26,7 @@ import {
 const meta = {
   title: 'Menus/Menus e fichas',
   component: DropdownMenuContent,
+  subcomponents: { DropdownMenuItem, ContextMenuContent, MenubarContent, PopoverContent, HoverCard, Tooltip },
   parameters: figma(
     { DropdownMenu: '15:3086', ContextMenu: '15:3261', Menubar: '15:3416', Popover: '15:3499', HoverCard: '15:3530', Tooltip: '15:3561' },
     'O estado Selected dos menus é o item realçado (teclado ou ponteiro). ContextMenu deve ter as mesmas ações num controle visível. HoverCard abre com hover, foco por teclado e clique (alternativa pedida no Figma).',

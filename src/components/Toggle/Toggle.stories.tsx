@@ -6,6 +6,7 @@ import { ButtonGroup, ButtonGroupItem, Toggle, ToggleGroup, ToggleGroupItem } fr
 const meta = {
   title: 'Ações/Toggle e grupos',
   component: Toggle,
+  subcomponents: { ButtonGroup, ButtonGroupItem, ToggleGroup, ToggleGroupItem },
   parameters: figma(
     { Toggle: '11:578', SignalButton: '11:519', ButtonGroup: '11:635', ToggleGroup: '11:702' },
     'SignalButton = `<Toggle variant="signal">`. Em ButtonGroup, o item destacado (`primary`) é ênfase de comando; em ToggleGroup, é seleção.',

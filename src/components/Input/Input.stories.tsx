@@ -7,6 +7,7 @@ import { Input } from './Input.js'
 const meta = {
   title: 'Formulários/Input',
   component: Input,
+  subcomponents: { Field },
   parameters: figma({ Input: '12:251', Field: '18:3699', Label: '12:1584' }),
 } satisfies Meta<typeof Input>
 export default meta

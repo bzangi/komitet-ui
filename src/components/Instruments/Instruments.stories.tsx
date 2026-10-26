@@ -8,6 +8,7 @@ import { Annunciator, Gauge, Readout, Terminal } from './Instruments.js'
 const meta = {
   title: 'Instrumentos/Instrumentos',
   component: Gauge,
+  subcomponents: { Readout, Terminal, Annunciator },
   parameters: figma(
     { Gauge: '16:3896', Readout: '16:4161', Terminal: '16:4244', Annunciator: '16:4299' },
     'Low/Default/High do Gauge e Low do Readout derivam do valor. A agulha segue a escala de −120° a +120° (no Figma os ângulos são aproximados). Valores e limites são expostos como `meter` ou em texto para leitores de tela.',
