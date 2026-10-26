@@ -2,6 +2,8 @@
 
 Biblioteca React de componentes analógicos — painéis, instrumentos, papel e placas — com dois temas: **Construtivista** (papel ocre, latão, tinta vermelha) e **Industrial** (chapa esmaltada verde, metal, oliva).
 
+Catálogo online: https://bzangi.github.io/komitet-ui/
+
 Referência visual: Figma `efiIkmlCZ1DyEoYhc6zvZr`. Cobertura e divergências: [`docs/COVERAGE.md`](docs/COVERAGE.md). Mapa Figma → React: [`docs/INVENTORY.md`](docs/INVENTORY.md).
 
 > Em desenvolvimento: veja em `docs/COVERAGE.md` o que já está concluído.
