@@ -113,7 +113,7 @@ npm run dev           # Storybook em http://localhost:6006 (temas lado a lado; t
 npm test              # comportamento + axe em cada story, navegador real (Chromium)
 npm run test:visual   # regressão visual dos componentes representativos nos dois temas
 npm run build         # dist/ (ESM + .d.ts + komitet-ui.css)
-npm run build-storybook # catálogo estático em storybook-static/
+npm run build-storybook # catálogo estático em storybook-static/ (publicado no GitHub Pages a cada push na main)
 ```
 
 Na primeira vez, rode `npx playwright install chromium`. Para atualizar as baselines visuais depois de uma mudança intencional, use `npm run test:visual -- --update`. As baselines dependem da plataforma (`*-chromium-darwin.png`).
