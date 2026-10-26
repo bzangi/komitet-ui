@@ -83,10 +83,15 @@
 .k-combobox__list ul {
   display: flex;
   flex-direction: column;
-  gap: var(--k-space-8);
+  gap: 0;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* Figma: lista compacta, uma linha por opção. */
+.k-combobox__list .k-menu__item {
+  padding: 0 var(--k-space-4);
 }
 
 .k-combobox__list [aria-disabled] {

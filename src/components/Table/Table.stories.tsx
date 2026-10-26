@@ -77,6 +77,7 @@ export const Registros: Story = {
           rows={docs}
           getRowId={d => d.id}
           selectable
+          defaultSort={{ key: 'documento', dir: 'ascending' }}
           footer={`3 registros / página ${page} de 3`}
         />
         <DataTable caption="Documentos (carregando)" columns={columns} rows={[]} getRowId={d => d.id} selectable loading />

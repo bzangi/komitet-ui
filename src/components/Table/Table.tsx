@@ -125,6 +125,8 @@ export type DataTableProps<T> = {
   getRowId: (row: T) => string
   /** Coluna usada para nomear cada linha (ex.: no rótulo do checkbox). Padrão: a primeira. */
   rowLabel?: (row: T) => string
+  /** Ordenação inicial (Figma: “Documento ↑”). */
+  defaultSort?: { key: keyof T & string; dir: 'ascending' | 'descending' }
   selectable?: boolean
   selected?: string[]
   onSelectedChange?: (ids: string[]) => void
@@ -146,6 +148,7 @@ export function DataTable<T>({
   rows,
   getRowId,
   rowLabel = row => String(row[columns[0]!.key]),
+  defaultSort,
   selectable,
   selected: selectedProp,
   onSelectedChange,
@@ -160,7 +163,7 @@ export function DataTable<T>({
   className,
 }: DataTableProps<T>) {
   const [query, setQuery] = useState('')
-  const [sort, setSort] = useState<{ key: string; dir: 'ascending' | 'descending' } | null>(null)
+  const [sort, setSort] = useState<{ key: string; dir: 'ascending' | 'descending' } | null>(defaultSort ?? null)
   const [innerSelected, setInnerSelected] = useState<string[]>([])
   const selected = selectedProp ?? innerSelected
   const setSelected = (ids: string[]) => (setInnerSelected(ids), onSelectedChange?.(ids))

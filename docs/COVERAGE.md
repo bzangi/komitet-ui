@@ -21,7 +21,7 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 
 ## Como cada família foi verificada
 - **Seções 01–04, 06–09, 11, 13 e 14:** extração estrutural (tokens, padding, bordas e textos via MCP) mais comparação lado a lado com a captura renderizada do Figma.
-- **Seções 05 (Tabelas), 10 (Busca e datas) e 12 (Resizable, Carousel):** extração estrutural via MCP mais revisão das capturas do Storybook. Não houve comparação com a captura renderizada do Figma, para poupar a cota do MCP. As famílias em que um desvio visual é mais plausível são Calendar (grade e título), DataTable (faixas de busca e rodapé) e Combobox aberto.
+- **Seções 05 (Tabelas), 10 (Busca e datas) e 12 (Resizable, Carousel):** extração estrutural via MCP. Calendar, DataTable e Combobox também foram comparados com a captura renderizada do Figma (2026-10-26), o que levou a três correções: setas do calendário junto ao título, ordenação inicial da DataTable (`defaultSort`) e Combobox aberto mantendo o valor, com a lista compacta.
 - **Acessibilidade:** o axe roda em todas as stories nos dois temas. As camadas em portal (Dialog, AlertDialog, DropdownMenu, Popover, HoverCard, Combobox, DatePicker) têm stories que terminam abertas, para o axe avaliar a camada.
 
 ## Componentes

@@ -59,11 +59,11 @@ export function Combobox({ options, value: valueProp, defaultValue = null, onVal
   const [inner, setInner] = useState(defaultValue)
   const value = valueProp === undefined ? inner : valueProp
   const [open, setOpen] = useState(false)
-  const [query, setQuery] = useState('')
+  const [query, setQuery] = useState<string | null>(null) // null = ainda não digitou desde que abriu
   const [active, setActive] = useState(0)
   const listId = useId()
   const current = options.find(o => o.value === value)
-  const q = query.trim().toLowerCase()
+  const q = (query ?? '').trim().toLowerCase()
   const shown = open && q ? options.filter(o => o.label.toLowerCase().includes(q)) : options
   const optionId = (i: number) => `${listId}-${i}`
 
@@ -72,16 +72,17 @@ export function Combobox({ options, value: valueProp, defaultValue = null, onVal
     setInner(o.value)
     onValueChange?.(o.value)
     setOpen(false)
-    setQuery('')
+    setQuery(null)
   }
-  const show = () => {
-    setActive(Math.max(0, shown.findIndex(o => o.value === value)))
+  const show = (input: HTMLInputElement) => {
+    setActive(Math.max(0, options.findIndex(o => o.value === value)))
     setOpen(true)
+    input.select()
   }
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault()
-      if (!open) return show()
+      if (!open) return show(e.currentTarget)
       const step = e.key === 'ArrowDown' ? 1 : -1
       setActive(a => (a + step + shown.length) % Math.max(shown.length, 1))
     } else if (e.key === 'Enter' && open && shown[active]) {
@@ -90,12 +91,12 @@ export function Combobox({ options, value: valueProp, defaultValue = null, onVal
     } else if (e.key === 'Escape' && open) {
       e.preventDefault()
       setOpen(false)
-      setQuery('')
+      setQuery(null)
     }
   }
 
   return (
-    <PO.Root open={open} onOpenChange={setOpen}>
+    <PO.Root open={open} onOpenChange={o => (setOpen(o), o || setQuery(null))}>
       <PO.Anchor asChild>
         <span className={cx('k-select', 'k-combobox', className)}>
           <input
@@ -108,14 +109,14 @@ export function Combobox({ options, value: valueProp, defaultValue = null, onVal
             autoComplete="off"
             disabled={disabled}
             {...useFieldControl(props)}
-            value={open ? query : (current?.label ?? '')}
+            value={open && query !== null ? query : (current?.label ?? '')}
             onChange={e => {
               setQuery(e.target.value)
               setActive(0)
               setOpen(true)
             }}
             onKeyDown={onKeyDown}
-            onClick={() => (open ? setOpen(false) : show())}
+            onClick={e => (open ? setOpen(false) : show(e.currentTarget))}
           />
         </span>
       </PO.Anchor>

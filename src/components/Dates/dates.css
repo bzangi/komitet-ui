@@ -23,14 +23,15 @@
 
 .k-calendar .rdp-month {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  /* Figma: “‹  OUTUBRO 2026  ›” alinhado à esquerda. */
+  grid-template-columns: auto auto auto 1fr;
   align-items: center;
   gap: var(--k-space-8);
 }
 
 .k-calendar .rdp-month_caption {
   grid-column: 2;
-  text-align: center;
+  grid-row: 1;
   font: var(--k-text-heading-m);
   text-transform: uppercase;
 }
