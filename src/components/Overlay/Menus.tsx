@@ -1,4 +1,4 @@
-import { useRef, useState, type ComponentProps, type PointerEvent, type ReactNode } from 'react'
+import { useId, useRef, useState, type ComponentProps, type PointerEvent, type ReactNode } from 'react'
 import { ContextMenu as CM, DropdownMenu as DM, Menubar as MB, Popover as PO, Tooltip as TT } from 'radix-ui'
 import { ThemeScope } from '../../theme/Theme.js'
 import { cx } from '../../utils/cx.js'
@@ -79,12 +79,18 @@ export const Popover = PO.Root
 export const PopoverTrigger = PO.Trigger
 export const PopoverClose = PO.Close
 
+/** A camada é um `dialog`: o título vira o nome acessível; sem título, informe `aria-label`. */
 export function PopoverContent({ title, className, children, sideOffset = 4, ...props }: Omit<ComponentProps<typeof PO.Content>, 'title'> & PanelProps) {
+  const titleId = useId()
   return (
     <PO.Portal>
       <ThemeScope>
-        <PO.Content className={cx('k-popup', className)} sideOffset={sideOffset} {...props}>
-          {title && <p className="k-popup__title">{title}</p>}
+        <PO.Content className={cx('k-popup', className)} sideOffset={sideOffset} aria-labelledby={title ? titleId : undefined} {...props}>
+          {title && (
+            <p id={titleId} className="k-popup__title">
+              {title}
+            </p>
+          )}
           <div className="k-popup__body">{children}</div>
         </PO.Content>
       </ThemeScope>

@@ -177,3 +177,39 @@ export const Aberto: Story = {
     </div>
   ),
 }
+
+/** Termina com as fichas abertas para o axe verificar a camada (nome do `dialog`). */
+export const FichasAbertas: Story = {
+  name: 'Teste: Popover aberto (a11y)',
+  render: () => (
+    <div style={{ ...row, height: 200, alignItems: 'flex-start' }}>
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button variant="secondary">Acesso</Button>
+        </PopoverTrigger>
+        <PopoverContent title="Acesso restrito">O registro pode ser restaurado após o arquivamento.</PopoverContent>
+      </Popover>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const [canvas] = eachTheme(canvasElement)
+    await userEvent.click(canvas!.getByRole('button', { name: 'Acesso' }))
+    await expect(await screen.findByRole('dialog', { name: 'Acesso restrito' })).toBeVisible()
+  },
+}
+
+export const HoverCardAberto: Story = {
+  name: 'Teste: HoverCard aberto por clique (a11y)',
+  render: () => (
+    <div style={{ height: 160 }}>
+      <HoverCard title="Ana Morais" content="Responsável pela operação e manutenção.">
+        <Button variant="quiet">Ana Morais</Button>
+      </HoverCard>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const [canvas] = eachTheme(canvasElement)
+    await userEvent.click(canvas!.getByRole('button', { name: 'Ana Morais' }))
+    await expect(await screen.findByRole('dialog', { name: 'Ana Morais' })).toBeVisible()
+  },
+}

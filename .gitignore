@@ -5,4 +5,3 @@ storybook-static
 __screenshots__/**/*-actual.png
 __screenshots__/**/*-diff.png
 .vitest
-figma-export

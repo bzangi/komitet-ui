@@ -19,6 +19,11 @@ A biblioteca não está pronta enquanto houver ⬜ ou 🟡.
 | Exemplo de composição (painel de operação) | ✅ | `Exemplos/Painel de operação`, nos dois temas, com teste de interação e baseline visual |
 | Decisão sobre texto de status (divergência 9) | ✅ | aprovado em 2026-10-23: escurecer só o texto (`--k-*-text`) |
 
+## Como cada família foi verificada
+- **Seções 01–04, 06–09, 11, 13 e 14:** extração estrutural (tokens, padding, bordas e textos via MCP) mais comparação lado a lado com a captura renderizada do Figma.
+- **Seções 05 (Tabelas), 10 (Busca e datas) e 12 (Resizable, Carousel):** extração estrutural via MCP mais revisão das capturas do Storybook. Não houve comparação com a captura renderizada do Figma, para poupar a cota do MCP. As famílias em que um desvio visual é mais plausível são Calendar (grade e título), DataTable (faixas de busca e rodapé) e Combobox aberto.
+- **Acessibilidade:** o axe roda em todas as stories nos dois temas. As camadas em portal (Dialog, AlertDialog, DropdownMenu, Popover, HoverCard, Combobox, DatePicker) têm stories que terminam abertas, para o axe avaliar a camada.
+
 ## Componentes
 | Componente | Figma | Status | Nota |
 |---|---|---|---|

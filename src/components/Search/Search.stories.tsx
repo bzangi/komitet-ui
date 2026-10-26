@@ -106,3 +106,22 @@ export const Codigo: Story = {
     await expect(input).toHaveValue('1234')
   },
 }
+
+export const ComboboxAberto: Story = {
+  name: 'Teste: Combobox aberto (a11y)',
+  render: () => (
+    <div style={{ maxWidth: 300, height: 220 }}>
+      <Field label="Unidade de operação">
+        <Combobox options={units} defaultValue="aurora" />
+      </Field>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const [canvas] = eachTheme(canvasElement)
+    const box = canvas!.getByRole('combobox', { name: 'Unidade de operação' })
+    box.focus()
+    await userEvent.keyboard('{ArrowDown}')
+    await expect(await screen.findByRole('listbox')).toBeVisible()
+    await expect(box).toHaveAttribute('aria-activedescendant')
+  },
+}

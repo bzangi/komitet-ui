@@ -62,7 +62,7 @@ function CalendarPopover({ label, disabled, children }: { label: string; disable
       </PO.Trigger>
       <PO.Portal>
         <ThemeScope>
-          <PO.Content className="k-date__popover" align="end" sideOffset={8}>
+          <PO.Content className="k-date__popover" aria-label="Calendário" align="end" sideOffset={8}>
             {children}
           </PO.Content>
         </ThemeScope>

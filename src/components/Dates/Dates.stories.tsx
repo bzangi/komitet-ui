@@ -90,3 +90,20 @@ export const TesteParse: Story = {
     await expect(isValidRange({ from: new Date(2026, 9, 24), to: new Date(2026, 9, 24) })).toBe(true)
   },
 }
+
+export const CalendarioAberto: Story = {
+  name: 'Teste: DatePicker aberto (a11y)',
+  render: () => (
+    <div style={{ maxWidth: 360, height: 420 }}>
+      <Field label="Próxima inspeção">
+        <DatePicker defaultValue={new Date(2026, 9, 24)} disabledDays={{ before: today }} />
+      </Field>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const [canvas] = eachTheme(canvasElement)
+    await userEvent.click(canvas!.getByRole('button', { name: 'Abrir calendário' }))
+    await expect(await screen.findByRole('dialog', { name: 'Calendário' })).toBeVisible()
+    await waitFor(() => expect(screen.getByRole('grid')).toBeVisible())
+  },
+}

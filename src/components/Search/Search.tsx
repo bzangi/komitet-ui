@@ -123,6 +123,7 @@ export function Combobox({ options, value: valueProp, defaultValue = null, onVal
         <ThemeScope>
           <PO.Content
             className="k-combobox__list"
+            aria-label="Opções"
             align="start"
             sideOffset={8}
             onOpenAutoFocus={e => e.preventDefault()}
